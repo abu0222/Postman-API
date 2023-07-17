@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>gov.va.ati.iss</groupId>
+	<artifactId>iss.pages</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>logs</directory>
+				<excludes>
+					<exclude>*.log</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>11</source>
+					<target>11</target>
+					<!-- <release>11</release> -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>gov.va.ati</groupId>
+			<artifactId>seleniumcore</artifactId>
+			<version>3.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>gov.va.ati</groupId>
+			<artifactId>platformindependentcore</artifactId>
+			<version>3.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- Uncomment dependancy below only if running Windows Driver AND not using selenium web driver.	 
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.141.59</version>
+		</dependency> -->
+
+
+
+
+
+
+	</dependencies>
+	<distributionManagement>
+		<repository>
+			<id>github-ati-iss-pages</id>
+			<url>https://maven.pkg.github.com/department-of-veterans-affairs/va-ati-iss-pages</url>
+		</repository>
+	</distributionManagement>
+</project>
