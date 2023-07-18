@@ -1,0 +1,2376 @@
+{
+	"info": {
+		"_postman_id": "7957b287-f7a1-4279-8e5b-0698e9de0d20",
+		"name": "CQS Notification API Automated",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27882668"
+	},
+	"item": [
+		{
+			"name": "1. Sorting and Filtering",
+			"item": [
+				{
+					"name": "1. Populate Data",
+					"item": [
+						{
+							"name": "Create Notification",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"startTime\": \"2023-01-01T00:00:00Z\",\r\n    \"endTime\":  \"2023-01-02T00:00:00Z\",\r\n    \"displayMessage\": \"This is a test message 1\",\r\n    \"displayTitle\": \"Test Title A\",\r\n    \"type\": \"type a\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Notification",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"startTime\": \"2023-01-02T00:00:00Z\",\r\n    \"endTime\":  \"2023-01-03T00:00:00Z\",\r\n    \"displayMessage\": \"This is a test message 2\",\r\n    \"displayTitle\": \"Test Title A\",\r\n    \"type\": \"type a\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Notification",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"startTime\": \"2023-01-01T00:00:00Z\",\r\n    \"endTime\":  \"2023-01-02T00:00:00Z\",\r\n    \"displayMessage\": \"This is a test message 2\",\r\n    \"displayTitle\": \"Test Title B\",\r\n    \"type\": \"type a\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Notification",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"startTime\": \"2023-01-01T01:00:00Z\",\r\n    \"endTime\":  \"2023-01-02T00:00:00Z\",\r\n    \"displayMessage\": \"This is a test message 1\",\r\n    \"displayTitle\": \"Test Title B\",\r\n    \"type\": \"type b\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Notification",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"startTime\": \"2023-01-01T00:00:00Z\",\r\n    \"endTime\":  \"2023-01-03T00:00:00Z\",\r\n    \"displayMessage\": \"This is a test message 2\",\r\n    \"displayTitle\": \"Test Title B\",\r\n    \"type\": \"type b\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Notification",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"startTime\": \"2023-01-01T00:00:00Z\",\r\n    \"endTime\":  null,\r\n    \"displayMessage\": \"This is a test message 2\",\r\n    \"displayTitle\": \"Test Title B\",\r\n    \"type\": \"type b\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "2. Sort",
+					"item": [
+						{
+							"name": "Type ASC",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											"",
+											"pm.test(\"Response is correctly formatted\", () => {",
+											"    pm.expect(Array.isArray(json)).to.be.true;",
+											"});",
+											"",
+											"pm.test(`Response contains ${json.length} results`, () => {",
+											"})",
+											"",
+											"const a = json[0].type ?? \"aaa\"",
+											"const b = json[json.length - 1].type ?? \"zzz\"",
+											"const comparison = a.localeCompare(b)",
+											"",
+											"pm.test(`Results are correctly sorted: '${a}' vs '${b}'`, () => {",
+											"    pm.expect(comparison).to.be.below(0)",
+											"})",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification?sort=type,asc",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "type,asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Type DESC",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											"",
+											"pm.test(\"Response is correctly formatted\", () => {",
+											"    pm.expect(Array.isArray(json)).to.be.true;",
+											"});",
+											"",
+											"pm.test(`Response contains ${json.length} results`, () => {",
+											"})",
+											"",
+											"const a = json[0].type ?? \"zzz\"",
+											"const b = json[json.length - 1].type ?? \"aaa\"",
+											"const comparison = a.localeCompare(b)",
+											"",
+											"pm.test(`Results are correctly sorted: '${a}' vs '${b}'`, () => {",
+											"    pm.expect(comparison).to.be.above(0)",
+											"})",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification?sort=type,desc",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "type,desc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ID ASC",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											"",
+											"pm.test(\"Response is correctly formatted\", () => {",
+											"    pm.expect(Array.isArray(json)).to.be.true;",
+											"});",
+											"",
+											"pm.test(`Response contains ${json.length} results`, () => {",
+											"})",
+											"",
+											"pm.test(`Results are correctly sorted`, () => {",
+											"    pm.expect(json[0].id).to.be.lessThan(json[json.length - 1].id)",
+											"})",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification?sort=id,asc",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "id,asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ID DESC",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											"",
+											"pm.test(\"Response is correctly formatted\", () => {",
+											"    pm.expect(Array.isArray(json)).to.be.true;",
+											"});",
+											"",
+											"pm.test(`Response contains ${json.length} results`, () => {",
+											"})",
+											"",
+											"pm.test(`Results are correctly sorted`, () => {",
+											"    pm.expect(json[0].id).to.be.greaterThan(json[json.length - 1].id)",
+											"})",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification?sort=id,desc",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "id,desc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Start Time ASC",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											"",
+											"pm.test(\"Response is correctly formatted\", () => {",
+											"    pm.expect(Array.isArray(json)).to.be.true;",
+											"});",
+											"",
+											"pm.test(`Response contains ${json.length} results`, () => {",
+											"})",
+											"",
+											"const a = Date.parse(json[0].startTime)",
+											"const b = Date.parse(json[json.length - 1].startTime)",
+											"",
+											"pm.test(`Results are correctly sorted: ${a} vs ${b}`, () => {",
+											"    pm.expect(a).to.be.lessThan(b)",
+											"})",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification?sort=startTime,asc",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "startTime,asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Start Time DESC",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											"",
+											"pm.test(\"Response is correctly formatted\", () => {",
+											"    pm.expect(Array.isArray(json)).to.be.true;",
+											"});",
+											"",
+											"pm.test(`Response contains ${json.length} results`, () => {",
+											"})",
+											"",
+											"const a = Date.parse(json[0].startTime)",
+											"const b = Date.parse(json[json.length - 1].startTime)",
+											"",
+											"pm.test(`Results are correctly sorted: ${a} vs ${b}`, () => {",
+											"    pm.expect(a).to.be.greaterThan(b)",
+											"})",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification?sort=startTime,desc",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "startTime,desc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "End Time ASC",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											"",
+											"pm.test(\"Response is correctly formatted\", () => {",
+											"    pm.expect(Array.isArray(json)).to.be.true;",
+											"});",
+											"",
+											"pm.test(`Response contains ${json.length} results`, () => {",
+											"})",
+											"",
+											"const a = Date.parse(json[0].endTime) || new Date(-8640000000000000).getTime()",
+											"const b = Date.parse(json[json.length - 1].endTime) || new Date(8640000000000000).getTime()",
+											"",
+											"pm.test(`Results are correctly sorted: ${a} vs ${b}`, () => {",
+											"    pm.expect(a).to.be.lessThan(b)",
+											"})",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification?sort=endTime,asc",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "endTime,asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "End Time DESC",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											"",
+											"pm.test(\"Response is correctly formatted\", () => {",
+											"    pm.expect(Array.isArray(json)).to.be.true;",
+											"});",
+											"",
+											"pm.test(`Response contains ${json.length} results`, () => {",
+											"})",
+											"",
+											"const a = Date.parse(json[0].endTime) || new Date(8640000000000000).getTime()",
+											"const b = Date.parse(json[json.length - 1].endTime) || new Date(-8640000000000000).getTime()",
+											"",
+											"pm.test(`Results are correctly sorted: ${a} vs ${b}`, () => {",
+											"    pm.expect(a).to.be.greaterThan(b)",
+											"})",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification?sort=endTime,desc",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "endTime,desc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Display Title ASC",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											"",
+											"pm.test(\"Response is correctly formatted\", () => {",
+											"    pm.expect(Array.isArray(json)).to.be.true;",
+											"});",
+											"",
+											"pm.test(`Response contains ${json.length} results`, () => {",
+											"})",
+											"",
+											"pm.test(`Results are correctly sorted`, () => {",
+											"    const comparison = json[0].displayTitle.localeCompare(json[json.length - 1].displayTitle)",
+											"    pm.expect(comparison).to.be.below(0)",
+											"})",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification?sort=displayTitle,asc",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "displayTitle,asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Display Title DESC",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											"",
+											"pm.test(\"Response is correctly formatted\", () => {",
+											"    pm.expect(Array.isArray(json)).to.be.true;",
+											"});",
+											"",
+											"pm.test(`Response contains ${json.length} results`, () => {",
+											"})",
+											"",
+											"pm.test(`Results are correctly sorted`, () => {",
+											"    const comparison = json[0].displayTitle.localeCompare(json[json.length - 1].displayTitle)",
+											"    pm.expect(comparison).to.be.above(0)",
+											"})",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification?sort=displayTitle,desc",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "displayTitle,desc"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "3. Filter",
+					"item": [
+						{
+							"name": "Starts Before | ?startBefore=",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											"",
+											"pm.test(\"Response is correctly formatted\", () => {",
+											"    pm.expect(Array.isArray(json)).to.be.true;",
+											"});",
+											"",
+											"pm.test(`Response contains ${json.length} results`, () => {",
+											"})",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification?startBefore=2023-01-01T00:00:01Z",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									],
+									"query": [
+										{
+											"key": "startBefore",
+											"value": "2023-01-01T00:00:01Z"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ends After | ?endAfter=",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											"",
+											"pm.test(\"Response is correctly formatted\", () => {",
+											"    pm.expect(Array.isArray(json)).to.be.true;",
+											"});",
+											"",
+											"pm.test(`Response contains ${json.length} results`, () => {",
+											"})",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification?endAfter=2023-01-02T00:00:00Z",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									],
+									"query": [
+										{
+											"key": "endAfter",
+											"value": "2023-01-02T00:00:00Z"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Title Contains | ?titleContains=",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											"",
+											"pm.test(\"Response is correctly formatted\", () => {",
+											"    pm.expect(Array.isArray(json)).to.be.true;",
+											"});",
+											"",
+											"pm.test(`Response contains ${json.length} results`, () => {",
+											"})",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification?titleContains=%20A",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									],
+									"query": [
+										{
+											"key": "titleContains",
+											"value": "%20A"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Type Equals | ?type=",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var code = pm.response.code;",
+											"var json = pm.response.json();",
+											"",
+											"pm.test(\"200 OK\", () => {",
+											"    pm.expect(code).to.eq(200)",
+											"});",
+											"",
+											"pm.test(\"Response is correctly formatted\", () => {",
+											"    pm.expect(Array.isArray(json)).to.be.true;",
+											"});",
+											"",
+											"pm.test(`Response contains ${json.length} results`, () => {",
+											"})",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "{{API_KEY}}",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "{{ORIGIN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOSTNAME}}/cqsnotification?type=type%20a",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"cqsnotification"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "type%20a"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "2. Basic CRUD",
+			"item": [
+				{
+					"name": "Get Current (set original_count)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.response.code;",
+									"var json = pm.response.json();",
+									"",
+									"pm.test(\"200 OK\", () => {",
+									"    pm.expect(code).to.eq(200)",
+									"});",
+									"",
+									"pm.test(\"Response is correctly formatted\", () => {",
+									"    pm.expect(Array.isArray(json)).to.be.true;",
+									"});",
+									"",
+									"pm.test(`There are ${json.length} pre-existing current notifications; setting original_count`, () => {",
+									"    pm.collectionVariables.set(\"original_count\", json.length);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "{{ORIGIN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOSTNAME}}/cqsnotification/getCurrent",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"cqsnotification",
+								"getCurrent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Notification (set new_id)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.variables.set(\"notification_start_time\", JSON.stringify(new Date().toISOString()))",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.response.code;",
+									"var json = pm.response.json();",
+									"",
+									"pm.test(\"200 OK\", () => {",
+									"    pm.expect(code).to.eq(200)",
+									"});",
+									"",
+									"pm.test(\"Response is a notification object\", () => {",
+									"    pm.expect(json).to.have.all.keys(",
+									"        \"id\",",
+									"        \"startTime\",",
+									"        \"endTime\",",
+									"        \"displayMessage\",",
+									"        \"displayTitle\",",
+									"        \"type\",",
+									"        \"isOffline\",",
+									"        \"isShowOnce\",",
+									"        \"active\",",
+									"        \"modifiedBy\",",
+									"        \"modifiedAt\",",
+									"        \"createdBy\",",
+									"        \"createdAt\"",
+									"    );",
+									"});",
+									"",
+									"pm.test(`Setting notification_id to ${json.id}`, () => {",
+									"    pm.collectionVariables.set(\"notification_id\", json.id);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							},
+							{
+								"key": "ORIGIN",
+								"value": "{{ORIGIN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"active\": true,\r\n    \"displayMessage\": \"string\",\r\n    \"displayTitle\": \"string\",\r\n    \"endTime\": \"2023-07-03T15:09:29.672Z\",\r\n    \"isOffline\": true,\r\n    \"isShowOnce\": true,\r\n    \"startTime\": \"2023-07-03T15:09:29.672Z\",\r\n    \"type\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}/cqsnotification",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"cqsnotification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By ID (expect obj)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.response.code;",
+									"var json = pm.response.json();",
+									"",
+									"pm.test(\"200 OK\", () => {",
+									"    pm.expect(code).to.eq(200)",
+									"});",
+									"",
+									"pm.test(\"Response is a notification object\", () => {",
+									"    pm.expect(json).to.have.all.keys(",
+									"        \"id\",",
+									"        \"startTime\",",
+									"        \"endTime\",",
+									"        \"displayMessage\",",
+									"        \"displayTitle\",",
+									"        \"type\",",
+									"        \"isOffline\",",
+									"        \"isShowOnce\",",
+									"        \"active\",",
+									"        \"modifiedBy\",",
+									"        \"modifiedAt\",",
+									"        \"createdBy\",",
+									"        \"createdAt\"",
+									"    );",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "{{ORIGIN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOSTNAME}}/cqsnotification/1",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"cqsnotification",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current (expect original_count + 1)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.response.code;",
+									"var json = pm.response.json();",
+									"",
+									"pm.test(\"200 OK\", () => {",
+									"    pm.expect(code).to.eq(200)",
+									"});",
+									"",
+									"pm.test(\"Response is correctly formatted\", () => {",
+									"    pm.expect(Array.isArray(json)).to.be.true;",
+									"});",
+									"",
+									"var expected_count = pm.collectionVariables.get(\"original_count\") + 1",
+									"",
+									"pm.test(`Response contains ${expected_count} entries`, () => {",
+									"    pm.expect(json.length).to.eq(expected_count)",
+									"});",
+									"",
+									"pm.test(\"Response contains a notification object\", () => {",
+									"    pm.expect(json[0]).to.have.all.keys(",
+									"        \"id\",",
+									"        \"startTime\",",
+									"        \"endTime\",",
+									"        \"displayMessage\",",
+									"        \"displayTitle\",",
+									"        \"type\",",
+									"        \"isOffline\",",
+									"        \"isShowOnce\",",
+									"        \"active\",",
+									"        \"modifiedBy\",",
+									"        \"modifiedAt\",",
+									"        \"createdBy\",",
+									"        \"createdAt\"",
+									"    );",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "{{ORIGIN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOSTNAME}}/cqsnotification/getCurrent",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"cqsnotification",
+								"getCurrent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All (expect >= original_count + 1)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.response.code;",
+									"var json = pm.response.json();",
+									"",
+									"pm.test(\"200 OK\", () => {",
+									"    pm.expect(code).to.eq(200)",
+									"});",
+									"",
+									"pm.test(\"Response is correctly formatted\", () => {",
+									"    pm.expect(Array.isArray(json)).to.be.true;",
+									"});",
+									"",
+									"var expected_count = pm.variables.get(\"original_count\") + 1",
+									"",
+									"pm.test(`Response contains >= ${expected_count} entries`, () => {",
+									"    pm.expect(json.length).to.be.gte(expected_count)",
+									"});",
+									"",
+									"pm.test(\"Response contains a notification object\", () => {",
+									"    pm.expect(json[0]).to.have.all.keys(",
+									"        \"id\",",
+									"        \"startTime\",",
+									"        \"endTime\",",
+									"        \"displayMessage\",",
+									"        \"displayTitle\",",
+									"        \"type\",",
+									"        \"isOffline\",",
+									"        \"isShowOnce\",",
+									"        \"active\",",
+									"        \"modifiedBy\",",
+									"        \"modifiedAt\",",
+									"        \"createdBy\",",
+									"        \"createdAt\"",
+									"    );",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "{{ORIGIN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOSTNAME}}/cqsnotification/1",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"cqsnotification",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Duplicate Notification (set duplicate_id)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.response.code;",
+									"var json = pm.response.json();",
+									"",
+									"pm.test(\"200 OK\", () => {",
+									"    pm.expect(code).to.eq(200)",
+									"});",
+									"",
+									"pm.test(\"Response is a notification object\", () => {",
+									"    pm.expect(json).to.have.all.keys(",
+									"        \"id\",",
+									"        \"startTime\",",
+									"        \"endTime\",",
+									"        \"displayMessage\",",
+									"        \"displayTitle\",",
+									"        \"type\",",
+									"        \"isOffline\",",
+									"        \"isShowOnce\",",
+									"        \"active\",",
+									"        \"modifiedBy\",",
+									"        \"modifiedAt\",",
+									"        \"createdBy\",",
+									"        \"createdAt\"",
+									"    );",
+									"});",
+									"",
+									"pm.test(`Setting duplicate_id to ${json.id}`, () => {",
+									"    pm.collectionVariables.set(\"duplicate_id\", json.id)",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "{{ORIGIN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"startTime\": \"2023-01-02T00:00:00Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}/cqsnotification/duplicate/{{notification_id}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"cqsnotification",
+								"duplicate",
+								"{{notification_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify the Duplicate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.response.code;",
+									"var json = pm.response.json();",
+									"",
+									"pm.test(\"200 OK\", () => {",
+									"    pm.expect(code).to.eq(200)",
+									"});",
+									"",
+									"pm.test(\"Response is a notification object\", () => {",
+									"    pm.expect(json).to.have.all.keys(",
+									"        \"id\",",
+									"        \"startTime\",",
+									"        \"endTime\",",
+									"        \"displayMessage\",",
+									"        \"displayTitle\",",
+									"        \"type\",",
+									"        \"isOffline\",",
+									"        \"isShowOnce\",",
+									"        \"active\",",
+									"        \"modifiedBy\",",
+									"        \"modifiedAt\",",
+									"        \"createdBy\",",
+									"        \"createdAt\"",
+									"    );",
+									"});",
+									"",
+									"pm.test(\"Modified notification has updated description\", () => {",
+									"    pm.expect(json.displayMessage).to.eql(\"This is a modification test\")",
+									"    pm.expect(json.displayTitle).to.eql(\"Modified Title\")",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "{{ORIGIN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"startTime\": \"2023-04-05T00:00:00Z\",\n    \"displayMessage\": \"This is a modification test\",\n    \"displayTitle\": \"Modified Title\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}/cqsnotification/{{duplicate_id}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"cqsnotification",
+								"{{duplicate_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current (expect original_count + 2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.response.code;",
+									"var json = pm.response.json();",
+									"",
+									"pm.test(\"200 OK\", () => {",
+									"    pm.expect(code).to.eq(200)",
+									"});",
+									"",
+									"pm.test(\"Response is correctly formatted\", () => {",
+									"    pm.expect(Array.isArray(json)).to.be.true;",
+									"});",
+									"",
+									"var expected_count = pm.collectionVariables.get(\"original_count\") + 2",
+									"",
+									"pm.test(`Response contains ${expected_count} entries`, () => {",
+									"    pm.expect(json.length).to.eq(expected_count)",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "{{ORIGIN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOSTNAME}}/cqsnotification/getCurrent",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"cqsnotification",
+								"getCurrent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Notification",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.response.code;",
+									"",
+									"pm.test(\"200 OK\", () => {",
+									"    pm.expect(code).to.eq(200)",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "{{ORIGIN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOSTNAME}}/cqsnotification/{{notification_id}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"cqsnotification",
+								"{{notification_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the Duplicate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.response.code;",
+									"",
+									"pm.test(\"200 OK\", () => {",
+									"    pm.expect(code).to.eq(200)",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "{{ORIGIN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOSTNAME}}/cqsnotification/{{duplicate_id}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"cqsnotification",
+								"{{duplicate_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current (expect original_count)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.response.code;",
+									"var json = pm.response.json();",
+									"",
+									"pm.test(\"200 OK\", () => {",
+									"    pm.expect(code).to.eq(200)",
+									"});",
+									"",
+									"pm.test(\"Response is correctly formatted\", () => {",
+									"    pm.expect(Array.isArray(json)).to.be.true;",
+									"});",
+									"",
+									"var expected_count = pm.collectionVariables.get(\"original_count\")",
+									"",
+									"pm.test(`Response contains ${expected_count} entries`, () => {",
+									"    pm.expect(json.length).to.eq(expected_count)",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "{{ORIGIN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOSTNAME}}/cqsnotification/getCurrent",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"cqsnotification",
+								"getCurrent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Notification Table",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var code = pm.response.code;",
+									"",
+									"pm.test(\"200 OK\", () => {",
+									"    pm.expect(code).to.eq(200)",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "{{API_KEY}}",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "{{ORIGIN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOSTNAME}}/cqsnotification/reset",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"cqsnotification",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "notification_id",
+			"value": ""
+		},
+		{
+			"key": "original_count",
+			"value": ""
+		},
+		{
+			"key": "duplicate_id",
+			"value": ""
+		}
+	]
+}

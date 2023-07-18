@@ -1,0 +1,843 @@
+{
+	"info": {
+		"_postman_id": "2dd65c1b-e217-4977-9f44-cffa81bbcd1f",
+		"name": "CQS Notification API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27882668"
+	},
+	"item": [
+		{
+			"name": "Setup (DO THIS FIRST) - Replace the URL contents with your variable values and press 'Send'",
+			"item": [
+				{
+					"name": "HOSTNAME",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"HOSTNAME\", pm.request.url.toString())"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(`HOSTNAME: ${pm.collectionVariables.get(\"HOSTNAME\")}`)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://staff.apps-staging.va.gov/notification/v1",
+							"protocol": "https",
+							"host": [
+								"staff",
+								"apps-staging",
+								"va",
+								"gov"
+							],
+							"path": [
+								"notification",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ORIGIN",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"ORIGIN\", pm.request.url.toString())"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(`ORIGIN: ${pm.collectionVariables.get(\"ORIGIN\")}`)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://staff.apps-staging.va.gov/",
+							"protocol": "https",
+							"host": [
+								"staff",
+								"apps-staging",
+								"va",
+								"gov"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API_KEY",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"API_KEY\", pm.request.url.toString())"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(`API_KEY: ${pm.collectionVariables.get(\"API_KEY\")}`)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "vsecs",
+							"host": [
+								"vsecs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUTH_TOKEN",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"AUTH_TOKEN\", pm.request.url.toString())"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(`AUTH_TOKEN: ${pm.collectionVariables.get(\"AUTH_TOKEN\")}`)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "eyJhbGciOiJSUzUxMiJ9...",
+							"host": [
+								"eyJhbGciOiJSUzUxMiJ9",
+								"",
+								"",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create Notification - Offline Message",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "API-KEY",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "ORIGIN",
+						"value": "{{ORIGIN}}",
+						"type": "text"
+					},
+					{
+						"key": "HOSTNAME",
+						"value": "{{HOSTNAME}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"active\": true,\r\n    \"displayTitle\": \"ABU Message Test\",\r\n    \"displayMessage\": \"aBU This is an offline message notification with no end time.\",\r\n    \"startTime\": \"{{$isoTimestamp}}\", // example: 2023-01-01T00:00:00Z\r\n    \"endTime\": null,\r\n    \"isOffline\": true,\r\n    \"isShowOnce\": true,\r\n    \"type\": \"Offline Message\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOSTNAME}}/cqsnotification",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"cqsnotification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Notification - Show Once",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "API-KEY",
+						"value": "{{API_KEY}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "ORIGIN",
+						"value": "{{ORIGIN}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-key",
+						"value": "{{x-api-key}}",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"displayTitle\": \"Show Once Test\",\r\n    \"displayMessage\": \"This is a show-once notification with no end time.\",\r\n    \"startTime\": \"{{$isoTimestamp}}\", // example: 2023-01-01T00:00:00Z\r\n    \"endTime\": null,\r\n    \"isOffline\": false,\r\n    \"isShowOnce\": true,\r\n    \"type\": \"Notification\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOSTNAME}}/cqsnotification",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"cqsnotification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Duplicate Notification",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "{{API_KEY}}",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "{{ORIGIN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"displayTitle\": \"Notification Clone\",\n    \"displayMessage\": \"This is a duplicate of a notification with a new start time.\",\n    \"startTime\": \"{{$isoTimestamp}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOSTNAME}}/cqsnotification/duplicate/1",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"cqsnotification",
+						"duplicate",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify Notification",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "{{API_KEY}}",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "{{ORIGIN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"displayTitle\": \"Modified Title\",\n    \"displayMessage\": \"This is a modified notification with the end time set to the current time.\",\n    \"endTime\": \"{{$isoTimestamp}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOSTNAME}}/cqsnotification/1",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"cqsnotification",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get By ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "{{API_KEY}}",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "{{ORIGIN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOSTNAME}}/cqsnotification/1",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"cqsnotification",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Current",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "{{API_KEY}}",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "{{ORIGIN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOSTNAME}}/cqsnotification/getCurrent",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"cqsnotification",
+						"getCurrent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Current (With Criteria)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "{{API_KEY}}",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "{{ORIGIN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOSTNAME}}/cqsnotification/getCurrent?startBefore=2023-01-01T00:00:00&endAfter=2023-01-01T00:00:00&titleContains=Test&type=test",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"cqsnotification",
+						"getCurrent"
+					],
+					"query": [
+						{
+							"key": "startBefore",
+							"value": "2023-01-01T00:00:00"
+						},
+						{
+							"key": "endAfter",
+							"value": "2023-01-01T00:00:00"
+						},
+						{
+							"key": "titleContains",
+							"value": "Test"
+						},
+						{
+							"key": "type",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "{{API_KEY}}",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "{{ORIGIN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOSTNAME}}/cqsnotification",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"cqsnotification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All (With Criteria)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "{{API_KEY}}",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "{{ORIGIN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOSTNAME}}/cqsnotification?startBefore=2023-01-01T00:00:00&endAfter=2023-01-01T00:00:00&titleContains=Test&type=test",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"cqsnotification"
+					],
+					"query": [
+						{
+							"key": "startBefore",
+							"value": "2023-01-01T00:00:00"
+						},
+						{
+							"key": "endAfter",
+							"value": "2023-01-01T00:00:00"
+						},
+						{
+							"key": "titleContains",
+							"value": "Test"
+						},
+						{
+							"key": "type",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Notification",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "{{API_KEY}}",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "{{ORIGIN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{HOSTNAME}}/cqsnotification/1",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"cqsnotification",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset Notification Table - USE WITH CAUTION",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "{{API_KEY}}",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "{{ORIGIN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "!!! USE WITH CAUTION !!! {{HOSTNAME}}/notification/v1/cqsnotification/reset",
+					"host": [
+						"!!! USE WITH CAUTION !!! {{HOSTNAME}}"
+					],
+					"path": [
+						"notification",
+						"v1",
+						"cqsnotification",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "ORIGIN",
+			"value": ""
+		},
+		{
+			"key": "HOSTNAME",
+			"value": ""
+		},
+		{
+			"key": "API_KEY",
+			"value": ""
+		},
+		{
+			"key": "AUTH_TOKEN",
+			"value": ""
+		}
+	]
+}

@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "e7f3ed1f-7fb1-447b-9562-827813016c41",
+		"name": "CQS Queueing API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27882668"
+	},
+	"item": [
+		{
+			"name": "POST New Queue",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiIxMDEzNzY2ODMzIiwibGFzdE5hbWUiOiJTQVNBS0kiLCJhdXRoZW50aWNhdGVkIjp0cnVlLCJhdXRoZW50aWNhdGlvbkF1dGhvcml0eSI6Imdvdi52YS5pYW0uc3NvaS52MSIsImlkVHlwZSI6InNlY2lkIiwiaXNzIjoiZ292LnZhLnZhbWYudXNlcnNlcnZpY2UudjIiLCJ2YW1mLmF1dGgucmVzb3VyY2VzIjpbIl4uKihcLyk_c3RhZmZcLzEwMTM3NjY4MzMoXC8uKik_JCIsIl4uKihcLyk_cGF0aWVudFtzXT8oXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDAoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT80NDIoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDIoXC8uKik_JCJdLCJ2ZXJzaW9uIjoyLjgsInZpc3RhSWRzIjpbeyJkdXoiOiI1MjA4ODE4ODUiLCJzaXRlSWQiOiI5MDAiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMCJ9LHsiZHV6IjoiNTIwODgxODg1Iiwic2l0ZUlkIjoiNDQyIiwic2l0ZU5hbWUiOiJDaGV5ZW5uZSBXWSBWQU1DIn0seyJkdXoiOiI1MjA4ODE4ODIiLCJzaXRlSWQiOiI5MDIiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMiJ9XSwiZmlyc3ROYW1lIjoiU0VBTiIsInN0YWZmRGlzY2xhaW1lckFjY2VwdGVkIjp0cnVlLCJuYmYiOjE2ODQ0NDUwMjQsInNzdCI6MTY4NDQ0NTE5OSwiYXR0cmlidXRlcyI6eyJjb21wYWN0IjoiZmFsc2UiLCJhZFVwbiI6IlNFQU4uU0FTQUtJQHZhLmdvdiIsInNlY2lkIjoiMTAxMzc2NjgzMyIsImFkU2FtQWNjb3VudE5hbWUiOiJPSVRQVUdTQVNBS1MifSwidmFtZi5hdXRoLnJvbGVzIjpbInN0YWZmIiwidmEiLCJoY3AiXSwiZXhwIjoxNjg0NDQ2MTA0LCJlbWFpbCI6IlNFQU4uU0FTQUtJQHZhLmdvdiIsImp0aSI6IjdjMGU2MTZhLTgyZTAtNDRlZC1hN2U1LWQyMmI3NWU3OGViYyIsImxvYSI6M30.t2ysaG-mGLrzNSZ7Dt-QXt65oRkmLc79vphUwXcz0CGqOrILHcEuwmL8wLyRLO_MISTy0ZWRwnM4RWejatuS7oupe32j3wS_LRgeoGLFMfDw_FsdUzESAO2OXJtdG2iioRqE5oeqeMoiZKzlRT10CdKfP48KY09f47LY3VODTZUfllkC1vbTorTuWbOl7RuSrmlZwD1FZsY7zoJjhqasALWqR18wSCkUcT5xSFv02gndAEqEL2Nfj0GcHIbgbqTp7Hfnz8b0QGWc_e0ojJpy0uhyntSIb1yyB61S2Dy47PLXrJY2aI8Oo8gip860a7MgpHrkHCXXsLCgh-QigqVH3Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://staff.apps-staging.va.gov/",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"siteId\": \"983\",\r\n    \"queueName\": \"Test Queue 1\",\r\n    \"active\": true,\r\n    \"nextPatientNum\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://staff.apps-staging.va.gov/queueing/v1/queue",
+					"protocol": "https",
+					"host": [
+						"staff",
+						"apps-staging",
+						"va",
+						"gov"
+					],
+					"path": [
+						"queueing",
+						"v1",
+						"queue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST New Patient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiIxMDEzNzY2ODMzIiwibGFzdE5hbWUiOiJTQVNBS0kiLCJhdXRoZW50aWNhdGVkIjp0cnVlLCJhdXRoZW50aWNhdGlvbkF1dGhvcml0eSI6Imdvdi52YS5pYW0uc3NvaS52MSIsImlkVHlwZSI6InNlY2lkIiwiaXNzIjoiZ292LnZhLnZhbWYudXNlcnNlcnZpY2UudjIiLCJ2YW1mLmF1dGgucmVzb3VyY2VzIjpbIl4uKihcLyk_c3RhZmZcLzEwMTM3NjY4MzMoXC8uKik_JCIsIl4uKihcLyk_cGF0aWVudFtzXT8oXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDAoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT80NDIoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDIoXC8uKik_JCJdLCJ2ZXJzaW9uIjoyLjgsInZpc3RhSWRzIjpbeyJkdXoiOiI1MjA4ODE4ODUiLCJzaXRlSWQiOiI5MDAiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMCJ9LHsiZHV6IjoiNTIwODgxODg1Iiwic2l0ZUlkIjoiNDQyIiwic2l0ZU5hbWUiOiJDaGV5ZW5uZSBXWSBWQU1DIn0seyJkdXoiOiI1MjA4ODE4ODIiLCJzaXRlSWQiOiI5MDIiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMiJ9XSwiZmlyc3ROYW1lIjoiU0VBTiIsInN0YWZmRGlzY2xhaW1lckFjY2VwdGVkIjp0cnVlLCJuYmYiOjE2ODQ0NDU5NzYsInNzdCI6MTY4NDQ0NjE1NiwiYXR0cmlidXRlcyI6eyJjb21wYWN0IjoiZmFsc2UiLCJhZFVwbiI6IlNFQU4uU0FTQUtJQHZhLmdvdiIsInNlY2lkIjoiMTAxMzc2NjgzMyIsImFkU2FtQWNjb3VudE5hbWUiOiJPSVRQVUdTQVNBS1MifSwidmFtZi5hdXRoLnJvbGVzIjpbInN0YWZmIiwidmEiLCJoY3AiXSwiZXhwIjoxNjg0NDQ3MDU2LCJlbWFpbCI6IlNFQU4uU0FTQUtJQHZhLmdvdiIsImp0aSI6IjlkYjA5ZDJkLWQ1ZDItNDI5Yi04ZWNkLTdmM2E4OTMxZTdlZSIsImxvYSI6M30.wlSsjZY0-6s2R7lMiuLriGn3gsb3ujziJE-LMh-IWhvE0qbwChabm8m6pw_urSXWyWu73ddRiM0WChuGY1ndrNP8JKP_5NkAauIDXSwE8X3Qs6lftkDIOmGPDNhENieDr4ICD0LrHhKLNiql2zpIajA_t4rzYVM5OgmeqLoEf8uxHsIVAjreDheDlrmG-SogcIJamMUaQcbFZuwL9DFLrDGGXj-m2xZ4h_JkLC9anUAqRrGYF59lBAyAunJgX94YGQhK8hRafv7T3dYqfWIc8KUU7Ym_V-vo6dDyaXt6y69cB1Ti34cmSFGtcNWN_PX7eNTK6Q2a4r_3PeWkTTPUzg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://staff.apps-staging.va.gov/",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"queueId\": 1394,\r\n    \"patientName\": \"Michael Scott\",\r\n    \"checkinTime\": \"2023-05-18T21:43:10.447Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://staff.apps-staging.va.gov/queueing/v1/qpatient",
+					"protocol": "https",
+					"host": [
+						"staff",
+						"apps-staging",
+						"va",
+						"gov"
+					],
+					"path": [
+						"queueing",
+						"v1",
+						"qpatient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST New Memo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiIxMDEzNzY2ODMzIiwibGFzdE5hbWUiOiJTQVNBS0kiLCJhdXRoZW50aWNhdGVkIjp0cnVlLCJhdXRoZW50aWNhdGlvbkF1dGhvcml0eSI6Imdvdi52YS5pYW0uc3NvaS52MSIsImlkVHlwZSI6InNlY2lkIiwiaXNzIjoiZ292LnZhLnZhbWYudXNlcnNlcnZpY2UudjIiLCJ2YW1mLmF1dGgucmVzb3VyY2VzIjpbIl4uKihcLyk_c3RhZmZcLzEwMTM3NjY4MzMoXC8uKik_JCIsIl4uKihcLyk_cGF0aWVudFtzXT8oXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDAoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT80NDIoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDIoXC8uKik_JCJdLCJ2ZXJzaW9uIjoyLjgsInZpc3RhSWRzIjpbeyJkdXoiOiI1MjA4ODE4ODUiLCJzaXRlSWQiOiI5MDAiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMCJ9LHsiZHV6IjoiNTIwODgxODg1Iiwic2l0ZUlkIjoiNDQyIiwic2l0ZU5hbWUiOiJDaGV5ZW5uZSBXWSBWQU1DIn0seyJkdXoiOiI1MjA4ODE4ODIiLCJzaXRlSWQiOiI5MDIiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMiJ9XSwiZmlyc3ROYW1lIjoiU0VBTiIsInN0YWZmRGlzY2xhaW1lckFjY2VwdGVkIjp0cnVlLCJuYmYiOjE2ODQ0NDU5NzYsInNzdCI6MTY4NDQ0NjE1NiwiYXR0cmlidXRlcyI6eyJjb21wYWN0IjoiZmFsc2UiLCJhZFVwbiI6IlNFQU4uU0FTQUtJQHZhLmdvdiIsInNlY2lkIjoiMTAxMzc2NjgzMyIsImFkU2FtQWNjb3VudE5hbWUiOiJPSVRQVUdTQVNBS1MifSwidmFtZi5hdXRoLnJvbGVzIjpbInN0YWZmIiwidmEiLCJoY3AiXSwiZXhwIjoxNjg0NDQ3MDU2LCJlbWFpbCI6IlNFQU4uU0FTQUtJQHZhLmdvdiIsImp0aSI6IjlkYjA5ZDJkLWQ1ZDItNDI5Yi04ZWNkLTdmM2E4OTMxZTdlZSIsImxvYSI6M30.wlSsjZY0-6s2R7lMiuLriGn3gsb3ujziJE-LMh-IWhvE0qbwChabm8m6pw_urSXWyWu73ddRiM0WChuGY1ndrNP8JKP_5NkAauIDXSwE8X3Qs6lftkDIOmGPDNhENieDr4ICD0LrHhKLNiql2zpIajA_t4rzYVM5OgmeqLoEf8uxHsIVAjreDheDlrmG-SogcIJamMUaQcbFZuwL9DFLrDGGXj-m2xZ4h_JkLC9anUAqRrGYF59lBAyAunJgX94YGQhK8hRafv7T3dYqfWIc8KUU7Ym_V-vo6dDyaXt6y69cB1Ti34cmSFGtcNWN_PX7eNTK6Q2a4r_3PeWkTTPUzg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://staff.apps-staging.va.gov/",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"memoMessage\": \"This is a memo for Michael.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://staff.apps-staging.va.gov/queueing/v1/qpatient/1894/memo",
+					"protocol": "https",
+					"host": [
+						"staff",
+						"apps-staging",
+						"va",
+						"gov"
+					],
+					"path": [
+						"queueing",
+						"v1",
+						"qpatient",
+						"1894",
+						"memo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Patients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzUxMiJ9.eyJsYXN0TmFtZSI6Ik1BSEZVWiIsInN1YiI6IjEwMTM3NjY4MjkiLCJhdXRoZW50aWNhdGVkIjp0cnVlLCJhdXRoZW50aWNhdGlvbkF1dGhvcml0eSI6Imdvdi52YS5pYW0uc3NvaS52MSIsImlkVHlwZSI6InNlY2lkIiwiaXNzIjoiZ292LnZhLnZhbWYudXNlcnNlcnZpY2UudjIiLCJ2YW1mLmF1dGgucmVzb3VyY2VzIjpbIl4uKihcLyk_c3RhZmZcLzEwMTM3NjY4MjkoXC8uKik_JCIsIl4uKihcLyk_cGF0aWVudFtzXT8oXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT80NDIoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDAoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDIoXC8uKik_JCJdLCJ2ZXJzaW9uIjoyLjgsInZpc3RhSWRzIjpbeyJkdXoiOiI1MjA4ODE4NzkiLCJzaXRlSWQiOiI0NDIiLCJzaXRlTmFtZSI6IkNoZXllbm5lIFdZIFZBTUMifSx7ImR1eiI6IjUyMDg4MTg3OSIsInNpdGVJZCI6IjkwMCIsInNpdGVOYW1lIjoiU2l0ZSAjOTAwIn0seyJkdXoiOiI1MjA4ODE4NzciLCJzaXRlSWQiOiI5MDIiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMiJ9XSwiZmlyc3ROYW1lIjoiQUJVU0FZRUQiLCJzdGFmZkRpc2NsYWltZXJBY2NlcHRlZCI6dHJ1ZSwibmJmIjoxNjg4NjgwMTMxLCJzc3QiOjE2ODg2Nzg1NTIsImF0dHJpYnV0ZXMiOnsiY29tcGFjdCI6ImZhbHNlIiwiYWRVcG4iOiJBYnVTYXllZC5NYWhmdXpAdmEuZ292Iiwic2VjaWQiOiIxMDEzNzY2ODI5IiwiYWRTYW1BY2NvdW50TmFtZSI6Ik9JVFdBU01haGZ1QSJ9LCJ2YW1mLmF1dGgucm9sZXMiOlsic3RhZmYiLCJ2YSIsImhjcCJdLCJleHAiOjE2ODg2ODEyMTEsImVtYWlsIjoiQWJ1U2F5ZWQuTWFoZnV6QHZhLmdvdiIsImp0aSI6ImVkMGIwNjc1LWUzZWQtNDU4Ny05ZDBiLTVhYmNjNzZkMWZlZSIsImxvYSI6M30.E-Aai4YyTNSOo9Q-L86JPptHk-fnyPrdAEx9nfgCCnrLHBe5-VFIeTwDK8EiAlFlg-wuW6zTyR1GFXQIviPGauP7UjD162FSahr9c7Tm7xumULs0Nx1Cg8J516zczhvU-kqaKlqUR8B3WXgnB3JTonDq_gabHeL-RjNUKtiNFaE4HtowH8JuKmy3sOWE4-B7f_rRAxIWUr-Ekf2iGoEDaAP3my4j3NEdMjkQkjBASGxtssRzW-1-DwLkHIebswc6Dt8IAVzREFuKzAt6coetvycQk6A_nw788xKp3Nl38a3qC1iAapaM2oWIwwUkCznoMpjLfCcynytHPCSxs6WuLA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://staff.apps-staging.va.gov/",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://staff.apps-staging.va.gov/queueing/v1/qpatient/queue/",
+					"protocol": "https",
+					"host": [
+						"staff",
+						"apps-staging",
+						"va",
+						"gov"
+					],
+					"path": [
+						"queueing",
+						"v1",
+						"qpatient",
+						"queue",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Memos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiIxMDEzNzY2ODMzIiwibGFzdE5hbWUiOiJTQVNBS0kiLCJhdXRoZW50aWNhdGVkIjp0cnVlLCJhdXRoZW50aWNhdGlvbkF1dGhvcml0eSI6Imdvdi52YS5pYW0uc3NvaS52MSIsImlkVHlwZSI6InNlY2lkIiwiaXNzIjoiZ292LnZhLnZhbWYudXNlcnNlcnZpY2UudjIiLCJ2YW1mLmF1dGgucmVzb3VyY2VzIjpbIl4uKihcLyk_c3RhZmZcLzEwMTM3NjY4MzMoXC8uKik_JCIsIl4uKihcLyk_cGF0aWVudFtzXT8oXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDAoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT80NDIoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDIoXC8uKik_JCJdLCJ2ZXJzaW9uIjoyLjgsInZpc3RhSWRzIjpbeyJkdXoiOiI1MjA4ODE4ODUiLCJzaXRlSWQiOiI5MDAiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMCJ9LHsiZHV6IjoiNTIwODgxODg1Iiwic2l0ZUlkIjoiNDQyIiwic2l0ZU5hbWUiOiJDaGV5ZW5uZSBXWSBWQU1DIn0seyJkdXoiOiI1MjA4ODE4ODIiLCJzaXRlSWQiOiI5MDIiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMiJ9XSwiZmlyc3ROYW1lIjoiU0VBTiIsInN0YWZmRGlzY2xhaW1lckFjY2VwdGVkIjp0cnVlLCJuYmYiOjE2ODQ0NDU5NzYsInNzdCI6MTY4NDQ0NjE1NiwiYXR0cmlidXRlcyI6eyJjb21wYWN0IjoiZmFsc2UiLCJhZFVwbiI6IlNFQU4uU0FTQUtJQHZhLmdvdiIsInNlY2lkIjoiMTAxMzc2NjgzMyIsImFkU2FtQWNjb3VudE5hbWUiOiJPSVRQVUdTQVNBS1MifSwidmFtZi5hdXRoLnJvbGVzIjpbInN0YWZmIiwidmEiLCJoY3AiXSwiZXhwIjoxNjg0NDQ3MDU2LCJlbWFpbCI6IlNFQU4uU0FTQUtJQHZhLmdvdiIsImp0aSI6IjlkYjA5ZDJkLWQ1ZDItNDI5Yi04ZWNkLTdmM2E4OTMxZTdlZSIsImxvYSI6M30.wlSsjZY0-6s2R7lMiuLriGn3gsb3ujziJE-LMh-IWhvE0qbwChabm8m6pw_urSXWyWu73ddRiM0WChuGY1ndrNP8JKP_5NkAauIDXSwE8X3Qs6lftkDIOmGPDNhENieDr4ICD0LrHhKLNiql2zpIajA_t4rzYVM5OgmeqLoEf8uxHsIVAjreDheDlrmG-SogcIJamMUaQcbFZuwL9DFLrDGGXj-m2xZ4h_JkLC9anUAqRrGYF59lBAyAunJgX94YGQhK8hRafv7T3dYqfWIc8KUU7Ym_V-vo6dDyaXt6y69cB1Ti34cmSFGtcNWN_PX7eNTK6Q2a4r_3PeWkTTPUzg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://staff.apps-staging.va.gov/",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://staff.apps-staging.va.gov/queueing/v1/qpatient/queue/1394",
+					"protocol": "https",
+					"host": [
+						"staff",
+						"apps-staging",
+						"va",
+						"gov"
+					],
+					"path": [
+						"queueing",
+						"v1",
+						"qpatient",
+						"queue",
+						"1394"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Update Patient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiIxMDEzNzY2ODMzIiwibGFzdE5hbWUiOiJTQVNBS0kiLCJhdXRoZW50aWNhdGVkIjp0cnVlLCJhdXRoZW50aWNhdGlvbkF1dGhvcml0eSI6Imdvdi52YS5pYW0uc3NvaS52MSIsImlkVHlwZSI6InNlY2lkIiwiaXNzIjoiZ292LnZhLnZhbWYudXNlcnNlcnZpY2UudjIiLCJ2YW1mLmF1dGgucmVzb3VyY2VzIjpbIl4uKihcLyk_c3RhZmZcLzEwMTM3NjY4MzMoXC8uKik_JCIsIl4uKihcLyk_cGF0aWVudFtzXT8oXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDAoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT80NDIoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDIoXC8uKik_JCJdLCJ2ZXJzaW9uIjoyLjgsInZpc3RhSWRzIjpbeyJkdXoiOiI1MjA4ODE4ODUiLCJzaXRlSWQiOiI5MDAiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMCJ9LHsiZHV6IjoiNTIwODgxODg1Iiwic2l0ZUlkIjoiNDQyIiwic2l0ZU5hbWUiOiJDaGV5ZW5uZSBXWSBWQU1DIn0seyJkdXoiOiI1MjA4ODE4ODIiLCJzaXRlSWQiOiI5MDIiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMiJ9XSwiZmlyc3ROYW1lIjoiU0VBTiIsInN0YWZmRGlzY2xhaW1lckFjY2VwdGVkIjp0cnVlLCJuYmYiOjE2ODQ0NDU5NzYsInNzdCI6MTY4NDQ0NjE1NiwiYXR0cmlidXRlcyI6eyJjb21wYWN0IjoiZmFsc2UiLCJhZFVwbiI6IlNFQU4uU0FTQUtJQHZhLmdvdiIsInNlY2lkIjoiMTAxMzc2NjgzMyIsImFkU2FtQWNjb3VudE5hbWUiOiJPSVRQVUdTQVNBS1MifSwidmFtZi5hdXRoLnJvbGVzIjpbInN0YWZmIiwidmEiLCJoY3AiXSwiZXhwIjoxNjg0NDQ3MDU2LCJlbWFpbCI6IlNFQU4uU0FTQUtJQHZhLmdvdiIsImp0aSI6IjlkYjA5ZDJkLWQ1ZDItNDI5Yi04ZWNkLTdmM2E4OTMxZTdlZSIsImxvYSI6M30.wlSsjZY0-6s2R7lMiuLriGn3gsb3ujziJE-LMh-IWhvE0qbwChabm8m6pw_urSXWyWu73ddRiM0WChuGY1ndrNP8JKP_5NkAauIDXSwE8X3Qs6lftkDIOmGPDNhENieDr4ICD0LrHhKLNiql2zpIajA_t4rzYVM5OgmeqLoEf8uxHsIVAjreDheDlrmG-SogcIJamMUaQcbFZuwL9DFLrDGGXj-m2xZ4h_JkLC9anUAqRrGYF59lBAyAunJgX94YGQhK8hRafv7T3dYqfWIc8KUU7Ym_V-vo6dDyaXt6y69cB1Ti34cmSFGtcNWN_PX7eNTK6Q2a4r_3PeWkTTPUzg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://staff.apps-staging.va.gov/",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"queueId\": 1394,\r\n    \"patientName\": \"Scooby\",\r\n    \"checkinTime\": \"2023-05-18T21:43:10.447Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://staff.apps-staging.va.gov/queueing/v1/qpatient/1895",
+					"protocol": "https",
+					"host": [
+						"staff",
+						"apps-staging",
+						"va",
+						"gov"
+					],
+					"path": [
+						"queueing",
+						"v1",
+						"qpatient",
+						"1895"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Update Queue",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiIxMDEzNzY2ODMzIiwibGFzdE5hbWUiOiJTQVNBS0kiLCJhdXRoZW50aWNhdGVkIjp0cnVlLCJhdXRoZW50aWNhdGlvbkF1dGhvcml0eSI6Imdvdi52YS5pYW0uc3NvaS52MSIsImlkVHlwZSI6InNlY2lkIiwiaXNzIjoiZ292LnZhLnZhbWYudXNlcnNlcnZpY2UudjIiLCJ2YW1mLmF1dGgucmVzb3VyY2VzIjpbIl4uKihcLyk_c3RhZmZcLzEwMTM3NjY4MzMoXC8uKik_JCIsIl4uKihcLyk_cGF0aWVudFtzXT8oXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDAoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT80NDIoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDIoXC8uKik_JCJdLCJ2ZXJzaW9uIjoyLjgsInZpc3RhSWRzIjpbeyJkdXoiOiI1MjA4ODE4ODUiLCJzaXRlSWQiOiI5MDAiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMCJ9LHsiZHV6IjoiNTIwODgxODg1Iiwic2l0ZUlkIjoiNDQyIiwic2l0ZU5hbWUiOiJDaGV5ZW5uZSBXWSBWQU1DIn0seyJkdXoiOiI1MjA4ODE4ODIiLCJzaXRlSWQiOiI5MDIiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMiJ9XSwiZmlyc3ROYW1lIjoiU0VBTiIsInN0YWZmRGlzY2xhaW1lckFjY2VwdGVkIjp0cnVlLCJuYmYiOjE2ODQ0NDUwMjQsInNzdCI6MTY4NDQ0NTE5OSwiYXR0cmlidXRlcyI6eyJjb21wYWN0IjoiZmFsc2UiLCJhZFVwbiI6IlNFQU4uU0FTQUtJQHZhLmdvdiIsInNlY2lkIjoiMTAxMzc2NjgzMyIsImFkU2FtQWNjb3VudE5hbWUiOiJPSVRQVUdTQVNBS1MifSwidmFtZi5hdXRoLnJvbGVzIjpbInN0YWZmIiwidmEiLCJoY3AiXSwiZXhwIjoxNjg0NDQ2MTA0LCJlbWFpbCI6IlNFQU4uU0FTQUtJQHZhLmdvdiIsImp0aSI6IjdjMGU2MTZhLTgyZTAtNDRlZC1hN2U1LWQyMmI3NWU3OGViYyIsImxvYSI6M30.t2ysaG-mGLrzNSZ7Dt-QXt65oRkmLc79vphUwXcz0CGqOrILHcEuwmL8wLyRLO_MISTy0ZWRwnM4RWejatuS7oupe32j3wS_LRgeoGLFMfDw_FsdUzESAO2OXJtdG2iioRqE5oeqeMoiZKzlRT10CdKfP48KY09f47LY3VODTZUfllkC1vbTorTuWbOl7RuSrmlZwD1FZsY7zoJjhqasALWqR18wSCkUcT5xSFv02gndAEqEL2Nfj0GcHIbgbqTp7Hfnz8b0QGWc_e0ojJpy0uhyntSIb1yyB61S2Dy47PLXrJY2aI8Oo8gip860a7MgpHrkHCXXsLCgh-QigqVH3Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://staff.apps-staging.va.gov/",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"siteId\": \"983\",\r\n    \"queueName\": \"Test Queue 1 Updated\",\r\n    \"active\": true,\r\n    \"nextPatientNum\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://staff.apps-staging.va.gov/queueing/v1/queue/1",
+					"protocol": "https",
+					"host": [
+						"staff",
+						"apps-staging",
+						"va",
+						"gov"
+					],
+					"path": [
+						"queueing",
+						"v1",
+						"queue",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Queues",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiIxMDEzNzY2ODI5IiwibGFzdE5hbWUiOiJNQUhGVVoiLCJhdXRoZW50aWNhdGVkIjp0cnVlLCJhdXRoZW50aWNhdGlvbkF1dGhvcml0eSI6Imdvdi52YS5pYW0uc3NvaS52MSIsImlkVHlwZSI6InNlY2lkIiwiaXNzIjoiZ292LnZhLnZhbWYudXNlcnNlcnZpY2UudjIiLCJ2YW1mLmF1dGgucmVzb3VyY2VzIjpbIl4uKihcLyk_c3RhZmZcLzEwMTM3NjY4MjkoXC8uKik_JCIsIl4uKihcLyk_cGF0aWVudFtzXT8oXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT80NDIoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDAoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDIoXC8uKik_JCJdLCJ2ZXJzaW9uIjoyLjgsInZpc3RhSWRzIjpbeyJkdXoiOiI1MjA4ODE4NzkiLCJzaXRlSWQiOiI0NDIiLCJzaXRlTmFtZSI6IkNoZXllbm5lIFdZIFZBTUMifSx7ImR1eiI6IjUyMDg4MTg3OSIsInNpdGVJZCI6IjkwMCIsInNpdGVOYW1lIjoiU2l0ZSAjOTAwIn0seyJkdXoiOiI1MjA4ODE4NzciLCJzaXRlSWQiOiI5MDIiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMiJ9XSwiZmlyc3ROYW1lIjoiQUJVU0FZRUQiLCJzdGFmZkRpc2NsYWltZXJBY2NlcHRlZCI6dHJ1ZSwibmJmIjoxNjg3Mzg1NjQwLCJzc3QiOjE2ODczODU4MjAsImF0dHJpYnV0ZXMiOnsiY29tcGFjdCI6ImZhbHNlIiwiYWRVcG4iOiJBYnVTYXllZC5NYWhmdXpAdmEuZ292Iiwic2VjaWQiOiIxMDEzNzY2ODI5IiwiYWRTYW1BY2NvdW50TmFtZSI6Ik9JVFdBU01haGZ1QSJ9LCJ2YW1mLmF1dGgucm9sZXMiOlsic3RhZmYiLCJ2YSIsImhjcCJdLCJleHAiOjE2ODczODY3MjAsImVtYWlsIjoiQWJ1U2F5ZWQuTWFoZnV6QHZhLmdvdiIsImp0aSI6ImYxNWE5OTc2LTM0ODYtNDg5Yi1hMDA4LWYxMDBkZTk5ZjYyMiIsImxvYSI6M30.v9iGju3IZZOx3LnmETtTjfBaaP8YpoQZWIOyFNDkPJqjyrvZ3w_bO3aQFl3XeDefrjX0lqHU8zLSkG1PXNDRb1NTqrVthfQMJSPdwUGb9bIgPxYRZb2AVtMlK9xfc0elt_YtOniJlF31NzsC0FE3mgFEZcHLSk93nSdyos2jQq-hL3x_kKyZHWLtvvYoUNXbn-wWoySRNhvTFiXxuE_SPv7VQ9vOQubmtXjsv_u6IOrFhrvBpRYo8Um-bxHMw6BgTGrPq-pHc7-NrACXn34yEBIL1V_U2SwK4_sbVjLirmiqsmVnsKH8v_DogwXCOc4Jaas_VvXdfT8sKYs9EolTBg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://staff.apps-staging.va.gov/",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://staff.apps-staging.va.gov/queueing/v1/queue/",
+					"protocol": "https",
+					"host": [
+						"staff",
+						"apps-staging",
+						"va",
+						"gov"
+					],
+					"path": [
+						"queueing",
+						"v1",
+						"queue",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
