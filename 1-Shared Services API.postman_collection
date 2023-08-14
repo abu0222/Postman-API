@@ -1,0 +1,1934 @@
+{
+	"info": {
+		"_postman_id": "413dfd45-9ae8-4d51-a443-933d203950ac",
+		"name": "L_Shared Services API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27882668"
+	},
+	"item": [
+		{
+			"name": "Cancel Appointment",
+			"item": [
+				{
+					"name": "200 - Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Valid input returns 200\", () => {",
+									"    pm.response.to.have.status(200)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "SiteID",
+								"value": "AbuTest1",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "https://staff.apps.va.gov/",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"appointmentIEN\": 295478,\n    \"clinicIEN\": 3753,\n    \"dfn\": 7242620,\n    \"cancelledByClinicOrPatient\": \"PC\",\n    \"cancelReason\": \"PANDEMIC\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}/CancelAppointment/{{station_number}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"CancelAppointment",
+								"{{station_number}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 - Invalid Input",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid input returns 400\", () => {",
+									"    pm.response.to.have.status(400)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}/CancelAppointment/104",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"CancelAppointment",
+								"104"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Compensation and Pension",
+			"item": [
+				{
+					"name": "Get Appointment",
+					"item": [
+						{
+							"name": "200 - Success",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Valid input returns 200\", () => {",
+											"    pm.response.to.have.status(200)",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Origin",
+										"value": "https://staff.apps-staging.va.gov/",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOSTNAME}}/CompensationAndPension/{{station_number}}/7242620/5383/2023-03-05T08%3A00-05%3A00",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"CompensationAndPension",
+										"{{station_number}}",
+										"7242620",
+										"5383",
+										"2023-03-05T08%3A00-05%3A00"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "200 - Ammie Tracking Postt",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Valid input returns 200\", () => {",
+											"    pm.response.to.have.status(200)",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Origin",
+										"value": "https://staff.apps-staging.va.gov/",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"requestIEN\": \"59602\",\r\n    \"sdcl\": \"5383\",\r\n    \"apptDateTime\": \"2023-03-05T08:00-05:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOSTNAME}}/CompensationAndPension/amieTracking/{{station_number}}",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"CompensationAndPension",
+										"amieTracking",
+										"{{station_number}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create Appointment Link",
+					"item": [
+						{
+							"name": "200 - Success",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Valid input returns 200\", () => {",
+											"    pm.response.to.have.status(200)",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"appointmentIEN\": 1,\n  \"clinicIEN\": 2,\n  \"dfn\": 3,\n  \"cancelledByClinicOrPatient\": \"Hello Abu\",\n  \"cancelReason\": \"Cancel\",\n  \"note\": \"test\",\n  \"cancelHash\": \"adfda\",\n  \"eas\": \"afdsf\"\n}\n\n\n// {\n//     \"requestIEN\": {{appointmentIen}},\n//     \"vetReq\": 0,\n//     \"sdcl\": \"location\",\n//     \"apptDateTime\": {{appointmentDate}}\n// }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOSTNAME}}/CompensationAndPension/AmieTracking/442",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"CompensationAndPension",
+										"AmieTracking",
+										"442"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "400 - Invalid Input",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Invalid input returns 400\", () => {",
+											"    pm.response.to.have.status(400)",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{hostname}}/CompensationAndPension/AmieTracking/{{siteId}}",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"CompensationAndPension",
+										"AmieTracking",
+										"{{siteId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Get All Cancel Comments",
+			"item": [
+				{
+					"name": "200 - Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Valid input returns 200\", () => {",
+									"    pm.response.to.have.status(200)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiIxMDEzNzY2ODI5IiwibGFzdE5hbWUiOiJNQUhGVVoiLCJhdXRoZW50aWNhdGVkIjp0cnVlLCJhdXRoZW50aWNhdGlvbkF1dGhvcml0eSI6Imdvdi52YS5pYW0uc3NvaS52MSIsImlkVHlwZSI6InNlY2lkIiwiaXNzIjoiZ292LnZhLnZhbWYudXNlcnNlcnZpY2UudjIiLCJ2YW1mLmF1dGgucmVzb3VyY2VzIjpbIl4uKihcLyk_c3RhZmZcLzEwMTM3NjY4MjkoXC8uKik_JCIsIl4uKihcLyk_cGF0aWVudFtzXT8oXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT80NDIoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDAoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDIoXC8uKik_JCJdLCJ2ZXJzaW9uIjoyLjgsInZpc3RhSWRzIjpbeyJkdXoiOiI1MjA4ODE4NzkiLCJzaXRlSWQiOiI0NDIiLCJzaXRlTmFtZSI6IkNoZXllbm5lIFZBIE1lZGljYWwgQ2VudGVyIn0seyJkdXoiOiI1MjA4ODE4NzkiLCJzaXRlSWQiOiI5MDAiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMCJ9LHsiZHV6IjoiNTIwODgxODc3Iiwic2l0ZUlkIjoiOTAyIiwic2l0ZU5hbWUiOiJTaXRlICM5MDIifV0sImZpcnN0TmFtZSI6IkFCVVNBWUVEIiwic3RhZmZEaXNjbGFpbWVyQWNjZXB0ZWQiOnRydWUsIm5iZiI6MTY5MDQ3NjAwMSwic3N0IjoxNjkwNDY5OTI0LCJhdHRyaWJ1dGVzIjp7ImNvbXBhY3QiOiJmYWxzZSIsImFkVXBuIjoiQWJ1U2F5ZWQuTWFoZnV6QHZhLmdvdiIsInNlY2lkIjoiMTAxMzc2NjgyOSIsImFkU2FtQWNjb3VudE5hbWUiOiJPSVRXQVNNYWhmdUEifSwidmFtZi5hdXRoLnJvbGVzIjpbInN0YWZmIiwidmEiLCJoY3AiXSwiZXhwIjoxNjkwNDc3MDgxLCJlbWFpbCI6IkFidVNheWVkLk1haGZ1ekB2YS5nb3YiLCJqdGkiOiIzOWNhNTVhYS1jZDQ3LTQxMTYtOTAwMi0yYzFlNzVkZTdkMzciLCJsb2EiOjN9.P9EguYyG7LE7nTP_kp1a5JUbzH9l1y958rZMAtYnuDBi4RobOTfC2zt6ZBIPIxKDTlZ40dEkW5ggmSRkrY3V6SvSU6OCML9ntFxsMzt47Auh2oJPcLnXB0UC8Rovr8NIq3skmzIY43-OmEXXZWBy9yqygmvJNX4io0XhxgTmUJSBWYtsBpZ4cARoD9Sk9lYdEU3ZNXUfeKwPTsb-YQ_gLs_NzacDLFDRUURH_Yab7ozvj28ylPCARXkInmlQ5qLvUDXlOuE-uTZW4JMy_guWN-MOYOnJOlFiXqatcD42IrUIiQFZzhLEZuh51M0Y6077MaIwWW8I9QfArEdbK1LOjw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Origin",
+								"value": "https://staff.apps-staging.va.gov/",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOSTNAME}}/CancelComments/442",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"CancelComments",
+								"442"
+							],
+							"query": [
+								{
+									"key": "siteId",
+									"value": "TestAbu1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Cancel Reasons",
+			"item": [
+				{
+					"name": "200 - Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Valid input returns 200\", () => {",
+									"    pm.response.to.have.status(200)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Origin",
+								"value": "https://staff.apps-staging.va.gov/",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOSTNAME}}/CancelComments/442",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"CancelComments",
+								"442"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Vista Devices",
+			"item": [
+				{
+					"name": "200 - Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Valid input returns 200\", () => {",
+									"    pm.response.to.have.status(200)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/VistaDevicesSearch/{{siteId}}/{{vistaDeviceQuery}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"VistaDevicesSearch",
+								"{{siteId}}",
+								"{{vistaDeviceQuery}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 - Invalid Input",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Valid input returns 400\", () => {",
+									"    pm.response.to.have.status(400)",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOSTNAME}}/VistaDevicesSearch/442/11111111111111111111111111111111111111",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"VistaDevicesSearch",
+								"442",
+								"11111111111111111111111111111111111111"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Letter Types",
+			"item": [
+				{
+					"name": "200 - Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Valid input returns 200\", () => {",
+									"    pm.response.to.have.status(200)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/LetterTypes/{{siteId}}",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"LetterTypes",
+								"{{siteId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Special Needs and Preferences",
+			"item": [
+				{
+					"name": "200 - Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Valid input returns 200\", () => {",
+									"    pm.response.to.have.status(200)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOSTNAME}}/SpecialNeedsAndPreferences/{{station_number}}/104",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"SpecialNeedsAndPreferences",
+								"{{station_number}}",
+								"104"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 - Success POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Valid input returns 200\", () => {",
+									"    pm.response.to.have.status(200)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{HOSTNAME}}/SpecialNeedsAndPreferences/{{station_number}}/104",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"SpecialNeedsAndPreferences",
+								"{{station_number}}",
+								"104"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "200 - Success put",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Valid input returns 200\", () => {",
+									"    pm.response.to.have.status(200)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"SpecialNeedsAndPreferences\": [\r\n        {\r\n            \"Preference\": \"string\",\r\n            \"Remark\": \"string\",\r\n            \"Delete\": true\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}/SpecialNeedsAndPreferences/{{station_number}}/1",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"SpecialNeedsAndPreferences",
+								"{{station_number}}",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Insurance Verify Req",
+			"item": [
+				{
+					"name": "200 - Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Valid input returns 200\", () => {",
+									"    pm.response.to.have.status(200)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOSTNAME}}/InsuranceVerify/{{station_number}}/100",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"InsuranceVerify",
+								"{{station_number}}",
+								"100"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Insurance Verify List",
+			"item": [
+				{
+					"name": "200 - Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Valid input returns 200\", () => {",
+									"    pm.response.to.have.status(200)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/InsuranceVerify/{{siteId}}?dfns=123",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"InsuranceVerify",
+								"{{siteId}}"
+							],
+							"query": [
+								{
+									"key": "dfns",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patient Search",
+			"item": [
+				{
+					"name": "Do Patient Search",
+					"item": [
+						{
+							"name": "200 - Success",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Valid input returns 200\", () => {",
+											"    pm.response.to.have.status(200)",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOSTNAME}}/PatientSearch/442/100",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"PatientSearch",
+										"442",
+										"100"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get All Patients Per Site",
+					"item": [
+						{
+							"name": "200 - Success",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Valid input returns 200\", () => {",
+											"    pm.response.to.have.status(200)",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AUTH_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOSTNAME}}/PatientSearch/442",
+									"host": [
+										"{{HOSTNAME}}"
+									],
+									"path": [
+										"PatientSearch",
+										"442"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Print Appointment Letter",
+			"item": [
+				{
+					"name": "200 - Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Valid input returns 200\", () => {",
+									"    pm.response.to.have.status(200)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"appointmentIen\", 454)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOSTNAME}}/ViewAppointmentLetter/{{station_number}}/{{appointmentIen}}?type=N",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"ViewAppointmentLetter",
+								"{{station_number}}",
+								"{{appointmentIen}}"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "N"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 - Invalid Input",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid input returns 400\", () => {",
+									"    pm.response.to.have.status(400)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"appointmentIen\", 454)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOSTNAME}}/ViewAppointmentLetter/{{station_number}}/{{appointmentIen}}?type=TOOOLONG",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"ViewAppointmentLetter",
+								"{{station_number}}",
+								"{{appointmentIen}}"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "TOOOLONG"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 - Invalid Letter Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"invalid input returns 400\", () => {",
+									"    pm.response.to.have.status(400)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"appointmentIen\", 454)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{HOSTNAME}}/ViewAppointmentLetter/{{station_number}}/{{appointmentIen}}?type=TOOOLONG"
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}/ViewAppointmentLetter/{{station_number}}/{{appointmentIen}}?type=R",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"ViewAppointmentLetter",
+								"{{station_number}}",
+								"{{appointmentIen}}"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "R"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "404 - No Appointment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid input returns 404\", () => {",
+									"    pm.response.to.have.status(404)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"appointmentIen\", 454)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/ViewAppointmentLetter/{{siteId}}/{{appointmentIen}}?type=P",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"ViewAppointmentLetter",
+								"{{siteId}}",
+								"{{appointmentIen}}"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "P"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Print Appointment Letter Vista",
+			"item": [
+				{
+					"name": "200 - Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Valid input returns 200\", () => {",
+									"    pm.response.to.have.status(400)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}/PrintAppointmentLetter/{{station_number}}/{{appointmentIen}}/{{device}}?type=N",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"PrintAppointmentLetter",
+								"{{station_number}}",
+								"{{appointmentIen}}",
+								"{{device}}"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "N"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 - Invalid Input",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid input returns 400\", () => {",
+									"    pm.response.to.have.status(400)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/PrintAppointmentLetter/{{siteId}}/{{appointmentIen}}/{{device}}?type=TOOLONG",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"PrintAppointmentLetter",
+								"{{siteId}}",
+								"{{appointmentIen}}",
+								"{{device}}"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "TOOLONG"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 - Invalid Letter Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"invalid input returns 400\", () => {",
+									"    pm.response.to.have.status(400)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/PrintAppointmentLetter/{{siteId}}/{{appointmentIen}}/{{device}}?type=R",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"PrintAppointmentLetter",
+								"{{siteId}}",
+								"{{appointmentIen}}",
+								"{{device}}"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "R"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Provider Search",
+			"item": [
+				{
+					"name": "200 - Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Valid input returns 200\", () => {",
+									"    pm.response.to.have.status(200)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{HOSTNAME}}/ClinicsByProviderSearch/{/{{siteId}}/{{providerQuery}}\r\n"
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}/ClinicsByProviderSearch/{{station_number}}/",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"ClinicsByProviderSearch",
+								"{{station_number}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recall Clinic Search",
+			"item": [
+				{
+					"name": "200 - Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Valid input returns 200\", () => {",
+									"    pm.response.to.have.status(200)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOSTNAME}}/RecallClinicSearch/{{station_number}}/{{clinicSearch}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"RecallClinicSearch",
+								"{{station_number}}",
+								"{{clinicSearch}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 - Invalid Input",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid input returns 400\", () => {",
+									"    pm.response.to.have.status(400)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOSTNAME}}/RecallClinicSearch/{{station_number}}/{{clinicSearch}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"RecallClinicSearch",
+								"{{station_number}}",
+								"{{clinicSearch}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recall Provider Search",
+			"item": [
+				{
+					"name": "200 - Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Valid input returns 200\", () => {",
+									"    pm.response.to.have.status(200)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{HOSTNAME}}/RecallClinicSearch/{{station_number}}/{{clinicSearch}}\r\n{{hostname}}/RecallProviderSearch/{{siteId}}/{{providerSearch}}\r\n\r\n{{HOSTNAME}}/RecallClinicSearch/{{station_number}}/{{clinicSearch}}"
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}//RecallProviderSearch/{{station_number}}/{{providerSearch}}",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"",
+								"RecallProviderSearch",
+								"{{station_number}}",
+								"{{providerSearch}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "400 - Invalid Input",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Invalid input returns 400\", () => {",
+									"    pm.response.to.have.status(400)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/RecallProviderSearch/{{siteId}}/1",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"RecallProviderSearch",
+								"{{siteId}}",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SetUp (Do This First)",
+			"item": [
+				{
+					"name": "HOSTNAME",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"HOSTNAME\", pm.request.url.toStrint())\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(`HOSTNAME: ${pm.collectionVariables.get(\"HOSTNAME\")}`)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://staff.apps-staging.va.gov/sas-sharedservices/v1",
+							"protocol": "https",
+							"host": [
+								"staff",
+								"apps-staging",
+								"va",
+								"gov"
+							],
+							"path": [
+								"sas-sharedservices",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ORIGIN",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"ORIGIN\", pm.request.url.toString())\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(`ORIGIN: ${pm.collectionVariables.get(\"ORIGIN\")}`)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://staff.apps-staging.va.gov/",
+							"protocol": "https",
+							"host": [
+								"staff",
+								"apps-staging",
+								"va",
+								"gov"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API_KEY",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"API_KEY\", pm.request.url.toString())"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(`API_KEY: ${pm.collectionVariables.get(\"API_KEY\")}`)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "iss",
+							"host": [
+								"iss"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUTH_TOKEN",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"AUTH_TOKEN\", pm.request.url.toString())"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(`AUTH_TOKEN: ${pm.collectionVariables.get(\"AUTH_TOKEN\")}`)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "eyJhbGciOiJSUzUxMiJ9.eyJsYXN0TmFtZSI6Ik1BSEZVWiIsInN1YiI6IjEwMTM3NjY4MjkiLCJhdXRoZW50aWNhdGVkIjp0cnVlLCJhdXRoZW50aWNhdGlvbkF1dGhvcml0eSI6Imdvdi52YS5pYW0uc3NvaS52MSIsImlkVHlwZSI6InNlY2lkIiwiaXNzIjoiZ292LnZhLnZhbWYudXNlcnNlcnZpY2UudjIiLCJ2YW1mLmF1dGgucmVzb3VyY2VzIjpbIl4uKihcLyk_c3RhZmZcLzEwMTM3NjY4MjkoXC8uKik_JCIsIl4uKihcLyk_cGF0aWVudFtzXT8oXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT80NDIoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDAoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDIoXC8uKik_JCJdLCJ2ZXJzaW9uIjoyLjgsInZpc3RhSWRzIjpbeyJkdXoiOiI1MjA4ODE4NzkiLCJzaXRlSWQiOiI0NDIiLCJzaXRlTmFtZSI6IkNoZXllbm5lIFZBIE1lZGljYWwgQ2VudGVyIn0seyJkdXoiOiI1MjA4ODE4NzkiLCJzaXRlSWQiOiI5MDAiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMCJ9LHsiZHV6IjoiNTIwODgxODc3Iiwic2l0ZUlkIjoiOTAyIiwic2l0ZU5hbWUiOiJTaXRlICM5MDIifV0sImZpcnN0TmFtZSI6IkFCVVNBWUVEIiwic3RhZmZEaXNjbGFpbWVyQWNjZXB0ZWQiOnRydWUsIm5iZiI6MTY5MDQxMzg2Nywic3N0IjoxNjkwNDEyNTM1LCJhdHRyaWJ1dGVzIjp7ImNvbXBhY3QiOiJmYWxzZSIsImFkVXBuIjoiQWJ1U2F5ZWQuTWFoZnV6QHZhLmdvdiIsInNlY2lkIjoiMTAxMzc2NjgyOSIsImFkU2FtQWNjb3VudE5hbWUiOiJPSVRXQVNNYWhmdUEifSwidmFtZi5hdXRoLnJvbGVzIjpbInN0YWZmIiwidmEiLCJoY3AiXSwiZXhwIjoxNjkwNDE0OTQ3LCJlbWFpbCI6IkFidVNheWVkLk1haGZ1ekB2YS5nb3YiLCJqdGkiOiI5MDg5YWEwYy02NGM5LTRjMTMtOTRhZC0zYzAwMmI4NDA5MTkiLCJsb2EiOjN9.bxk7NXNgXboe_qDibtCsGl6TOcjLDnCTRAZhrVceBYOFe1rYLROY0hP8yraVR6yJ_1uBnzfGRT_B0C9mdD6qZSwNX5KF7_pt9lEpX2g1-HvMl_sqRv-U-LmDuy1wJRYctq5VvrZy0qVkApaj4-J8sI1wBaiKGcV3-oWTNIOYAYFwG-8SfQG_6qAQwhMs7o_fEJt4bW32CxQk2767JEUnUbrOWE6hLpYqPqwBJRClgqe3vYpykURqPzYX_Bxco5zJLwhvk3R5EJzzxkMvRoFStEpx9oMtv-cy-wCXgduWXdERxTzQHQjkUUDKY6G9AhSDf0pedqdyFy19AyP62k9Qlw",
+							"host": [
+								"eyJhbGciOiJSUzUxMiJ9",
+								"eyJsYXN0TmFtZSI6Ik1BSEZVWiIsInN1YiI6IjEwMTM3NjY4MjkiLCJhdXRoZW50aWNhdGVkIjp0cnVlLCJhdXRoZW50aWNhdGlvbkF1dGhvcml0eSI6Imdvdi52YS5pYW0uc3NvaS52MSIsImlkVHlwZSI6InNlY2lkIiwiaXNzIjoiZ292LnZhLnZhbWYudXNlcnNlcnZpY2UudjIiLCJ2YW1mLmF1dGgucmVzb3VyY2VzIjpbIl4uKihcLyk_c3RhZmZcLzEwMTM3NjY4MjkoXC8uKik_JCIsIl4uKihcLyk_cGF0aWVudFtzXT8oXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT80NDIoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDAoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDIoXC8uKik_JCJdLCJ2ZXJzaW9uIjoyLjgsInZpc3RhSWRzIjpbeyJkdXoiOiI1MjA4ODE4NzkiLCJzaXRlSWQiOiI0NDIiLCJzaXRlTmFtZSI6IkNoZXllbm5lIFZBIE1lZGljYWwgQ2VudGVyIn0seyJkdXoiOiI1MjA4ODE4NzkiLCJzaXRlSWQiOiI5MDAiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMCJ9LHsiZHV6IjoiNTIwODgxODc3Iiwic2l0ZUlkIjoiOTAyIiwic2l0ZU5hbWUiOiJTaXRlICM5MDIifV0sImZpcnN0TmFtZSI6IkFCVVNBWUVEIiwic3RhZmZEaXNjbGFpbWVyQWNjZXB0ZWQiOnRydWUsIm5iZiI6MTY5MDQxMzg2Nywic3N0IjoxNjkwNDEyNTM1LCJhdHRyaWJ1dGVzIjp7ImNvbXBhY3QiOiJmYWxzZSIsImFkVXBuIjoiQWJ1U2F5ZWQuTWFoZnV6QHZhLmdvdiIsInNlY2lkIjoiMTAxMzc2NjgyOSIsImFkU2FtQWNjb3VudE5hbWUiOiJPSVRXQVNNYWhmdUEifSwidmFtZi5hdXRoLnJvbGVzIjpbInN0YWZmIiwidmEiLCJoY3AiXSwiZXhwIjoxNjkwNDE0OTQ3LCJlbWFpbCI6IkFidVNheWVkLk1haGZ1ekB2YS5nb3YiLCJqdGkiOiI5MDg5YWEwYy02NGM5LTRjMTMtOTRhZC0zYzAwMmI4NDA5MTkiLCJsb2EiOjN9",
+								"bxk7NXNgXboe_qDibtCsGl6TOcjLDnCTRAZhrVceBYOFe1rYLROY0hP8yraVR6yJ_1uBnzfGRT_B0C9mdD6qZSwNX5KF7_pt9lEpX2g1-HvMl_sqRv-U-LmDuy1wJRYctq5VvrZy0qVkApaj4-J8sI1wBaiKGcV3-oWTNIOYAYFwG-8SfQG_6qAQwhMs7o_fEJt4bW32CxQk2767JEUnUbrOWE6hLpYqPqwBJRClgqe3vYpykURqPzYX_Bxco5zJLwhvk3R5EJzzxkMvRoFStEpx9oMtv-cy-wCXgduWXdERxTzQHQjkUUDKY6G9AhSDf0pedqdyFy19AyP62k9Qlw"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Actuator Health",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Returns 200\", () => {",
+							"    pm.response.to.have.status(200)",
+							"    pm.expect(pm.response.json().status).eql(\"UP\")",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{hostname}}/actuator/health",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{AUTH_TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

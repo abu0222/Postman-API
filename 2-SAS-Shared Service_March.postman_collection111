@@ -1,0 +1,1317 @@
+{
+	"info": {
+		"_postman_id": "eeef7638-bbe8-42eb-9e37-07bbb5989761",
+		"name": "SAS-Shared Service_March",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27882668"
+	},
+	"item": [
+		{
+			"name": "SetUp (Do This First)",
+			"item": [
+				{
+					"name": "HOSTNAME",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"HOSTNAME\", pm.request.url.toStrint())\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(`HOSTNAME: ${pm.collectionVariables.get(\"HOSTNAME\")}`)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://staff.apps-staging.va.gov/sas-sharedservices/v1",
+							"protocol": "https",
+							"host": [
+								"staff",
+								"apps-staging",
+								"va",
+								"gov"
+							],
+							"path": [
+								"sas-sharedservices",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ORIGIN",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"ORIGIN\", pm.request.url.toString())\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(`ORIGIN: ${pm.collectionVariables.get(\"ORIGIN\")}`)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://staff.apps-staging.va.gov/",
+							"protocol": "https",
+							"host": [
+								"staff",
+								"apps-staging",
+								"va",
+								"gov"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API_KEY",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"API_KEY\", pm.request.url.toString())"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(`API_KEY: ${pm.collectionVariables.get(\"API_KEY\")}`)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "iss",
+							"host": [
+								"iss"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUTH_TOKEN",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"AUTH_TOKEN\", pm.request.url.toString())"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(`AUTH_TOKEN: ${pm.collectionVariables.get(\"AUTH_TOKEN\")}`)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "eyJhbGciOiJSUzUxMiJ9.eyJsYXN0TmFtZSI6Ik1BSEZVWiIsInN1YiI6IjEwMTM3NjY4MjkiLCJhdXRoZW50aWNhdGVkIjp0cnVlLCJhdXRoZW50aWNhdGlvbkF1dGhvcml0eSI6Imdvdi52YS5pYW0uc3NvaS52MSIsImlkVHlwZSI6InNlY2lkIiwiaXNzIjoiZ292LnZhLnZhbWYudXNlcnNlcnZpY2UudjIiLCJ2YW1mLmF1dGgucmVzb3VyY2VzIjpbIl4uKihcLyk_c3RhZmZcLzEwMTM3NjY4MjkoXC8uKik_JCIsIl4uKihcLyk_cGF0aWVudFtzXT8oXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT80NDIoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDAoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDIoXC8uKik_JCJdLCJ2ZXJzaW9uIjoyLjgsInZpc3RhSWRzIjpbeyJkdXoiOiI1MjA4ODE4NzkiLCJzaXRlSWQiOiI0NDIiLCJzaXRlTmFtZSI6IkNoZXllbm5lIFZBIE1lZGljYWwgQ2VudGVyIn0seyJkdXoiOiI1MjA4ODE4NzkiLCJzaXRlSWQiOiI5MDAiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMCJ9LHsiZHV6IjoiNTIwODgxODc3Iiwic2l0ZUlkIjoiOTAyIiwic2l0ZU5hbWUiOiJTaXRlICM5MDIifV0sImZpcnN0TmFtZSI6IkFCVVNBWUVEIiwic3RhZmZEaXNjbGFpbWVyQWNjZXB0ZWQiOnRydWUsIm5iZiI6MTY5MDQxMzg2Nywic3N0IjoxNjkwNDEyNTM1LCJhdHRyaWJ1dGVzIjp7ImNvbXBhY3QiOiJmYWxzZSIsImFkVXBuIjoiQWJ1U2F5ZWQuTWFoZnV6QHZhLmdvdiIsInNlY2lkIjoiMTAxMzc2NjgyOSIsImFkU2FtQWNjb3VudE5hbWUiOiJPSVRXQVNNYWhmdUEifSwidmFtZi5hdXRoLnJvbGVzIjpbInN0YWZmIiwidmEiLCJoY3AiXSwiZXhwIjoxNjkwNDE0OTQ3LCJlbWFpbCI6IkFidVNheWVkLk1haGZ1ekB2YS5nb3YiLCJqdGkiOiI5MDg5YWEwYy02NGM5LTRjMTMtOTRhZC0zYzAwMmI4NDA5MTkiLCJsb2EiOjN9.bxk7NXNgXboe_qDibtCsGl6TOcjLDnCTRAZhrVceBYOFe1rYLROY0hP8yraVR6yJ_1uBnzfGRT_B0C9mdD6qZSwNX5KF7_pt9lEpX2g1-HvMl_sqRv-U-LmDuy1wJRYctq5VvrZy0qVkApaj4-J8sI1wBaiKGcV3-oWTNIOYAYFwG-8SfQG_6qAQwhMs7o_fEJt4bW32CxQk2767JEUnUbrOWE6hLpYqPqwBJRClgqe3vYpykURqPzYX_Bxco5zJLwhvk3R5EJzzxkMvRoFStEpx9oMtv-cy-wCXgduWXdERxTzQHQjkUUDKY6G9AhSDf0pedqdyFy19AyP62k9Qlw",
+							"host": [
+								"eyJhbGciOiJSUzUxMiJ9",
+								"eyJsYXN0TmFtZSI6Ik1BSEZVWiIsInN1YiI6IjEwMTM3NjY4MjkiLCJhdXRoZW50aWNhdGVkIjp0cnVlLCJhdXRoZW50aWNhdGlvbkF1dGhvcml0eSI6Imdvdi52YS5pYW0uc3NvaS52MSIsImlkVHlwZSI6InNlY2lkIiwiaXNzIjoiZ292LnZhLnZhbWYudXNlcnNlcnZpY2UudjIiLCJ2YW1mLmF1dGgucmVzb3VyY2VzIjpbIl4uKihcLyk_c3RhZmZcLzEwMTM3NjY4MjkoXC8uKik_JCIsIl4uKihcLyk_cGF0aWVudFtzXT8oXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT80NDIoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDAoXC8uKik_JCIsIl4uKihcLyk_c2l0ZVtzXT9cLyhkZm4tKT85MDIoXC8uKik_JCJdLCJ2ZXJzaW9uIjoyLjgsInZpc3RhSWRzIjpbeyJkdXoiOiI1MjA4ODE4NzkiLCJzaXRlSWQiOiI0NDIiLCJzaXRlTmFtZSI6IkNoZXllbm5lIFZBIE1lZGljYWwgQ2VudGVyIn0seyJkdXoiOiI1MjA4ODE4NzkiLCJzaXRlSWQiOiI5MDAiLCJzaXRlTmFtZSI6IlNpdGUgIzkwMCJ9LHsiZHV6IjoiNTIwODgxODc3Iiwic2l0ZUlkIjoiOTAyIiwic2l0ZU5hbWUiOiJTaXRlICM5MDIifV0sImZpcnN0TmFtZSI6IkFCVVNBWUVEIiwic3RhZmZEaXNjbGFpbWVyQWNjZXB0ZWQiOnRydWUsIm5iZiI6MTY5MDQxMzg2Nywic3N0IjoxNjkwNDEyNTM1LCJhdHRyaWJ1dGVzIjp7ImNvbXBhY3QiOiJmYWxzZSIsImFkVXBuIjoiQWJ1U2F5ZWQuTWFoZnV6QHZhLmdvdiIsInNlY2lkIjoiMTAxMzc2NjgyOSIsImFkU2FtQWNjb3VudE5hbWUiOiJPSVRXQVNNYWhmdUEifSwidmFtZi5hdXRoLnJvbGVzIjpbInN0YWZmIiwidmEiLCJoY3AiXSwiZXhwIjoxNjkwNDE0OTQ3LCJlbWFpbCI6IkFidVNheWVkLk1haGZ1ekB2YS5nb3YiLCJqdGkiOiI5MDg5YWEwYy02NGM5LTRjMTMtOTRhZC0zYzAwMmI4NDA5MTkiLCJsb2EiOjN9",
+								"bxk7NXNgXboe_qDibtCsGl6TOcjLDnCTRAZhrVceBYOFe1rYLROY0hP8yraVR6yJ_1uBnzfGRT_B0C9mdD6qZSwNX5KF7_pt9lEpX2g1-HvMl_sqRv-U-LmDuy1wJRYctq5VvrZy0qVkApaj4-J8sI1wBaiKGcV3-oWTNIOYAYFwG-8SfQG_6qAQwhMs7o_fEJt4bW32CxQk2767JEUnUbrOWE6hLpYqPqwBJRClgqe3vYpykURqPzYX_Bxco5zJLwhvk3R5EJzzxkMvRoFStEpx9oMtv-cy-wCXgduWXdERxTzQHQjkUUDKY6G9AhSDf0pedqdyFy19AyP62k9Qlw"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SAS ShareService",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "HOSTNAME",
+						"value": "{{HOSTNAME}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://staff.apps-staging.va.gov/sas-sharedservices/v1",
+					"protocol": "https",
+					"host": [
+						"staff",
+						"apps-staging",
+						"va",
+						"gov"
+					],
+					"path": [
+						"sas-sharedservices",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1-PATIENT SEARCH",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Referer",
+						"value": "https://apps-staging.va.gov",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "https://apps-staging.va.gov",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{{hostname}}/PatientSearch/{{siteId}}/alphatest\r\n\r\n\r\n\r\n{\r\n    \"Patient\": [\r\n        {\r\n            \"DFN\": 104,\r\n            \"DateOfBirth\": \"1946-07-30\",\r\n            \"DateOfDeath\": \"2005-10-28T00:00:01-0400\",\r\n            \"DemographicsNeedUpdate\": 1,\r\n            \"DemographicsUpdated\": \"2005-10-28\",\r\n            \"Eligibility\": [\r\n                {\r\n                    \"PrimaryEligibilityCode\": \"SC LESS THAN 50%\",\r\n                    \"PrimaryEligibilityCodeType\": \"VETERAN\"\r\n                },\r\n                {\r\n                    \"SecondaryEligibilityCode\": \"EMPLOYEE\",\r\n                    \"SecondaryEligibilityCodeType\": \"NON-VETERAN\"\r\n                }\r\n            ],\r\n            \"Flag\": [\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T11:29:42-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"BEHAVIORAL\",\r\n                    \"Narrative\": [\r\n                        \"THIS IS TO TEST FOR vse4118 AND VSE-4563.\",\r\n                        \"1ABCDEFGHI|\",\r\n                        \"2ABCDEFGHI|\",\r\n                        \"3ABCDEFGHI|\",\r\n                        \"4ABCDEFGHI|\",\r\n                        \"5ABCDEFGHI|\",\r\n                        \"6ABCDEFGHI|\",\r\n                        \"7ABCDEFGHI|\",\r\n                        \"8ABCDEFGHI|\",\r\n                        \"9ABCDEFGHI|\",\r\n                        \"0ABCDEFGHI|\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"BEHAVIORAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T15:58:08-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"HIGH RISK FOR SUICIDE\",\r\n                    \"Narrative\": [\r\n                        \"1ABCDEFGHI|\",\r\n                        \"2ABCDEFGHI|\",\r\n                        \"3ABCDEFGHI|\",\r\n                        \"4ABCDEFGHI|\",\r\n                        \"5ABCDEFGHI|\",\r\n                        \"6ABCDEFGHI|\",\r\n                        \"7ABCDEFGHI|\",\r\n                        \"8ABCDEFGHI|\",\r\n                        \"9ABCDEFGHI|\",\r\n                        \"0ABCDEFGHI|\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-03-15\",\r\n                    \"Type\": \"CLINICAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:29:22-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"MISSING PATIENT\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-01-14\",\r\n                    \"Type\": \"CLINICAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:30:15-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"URGENT    ADDRESS AS FEMALE\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"\",\r\n                    \"Type\": \"OTHER\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:10:57-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"AT RISK PATIENT\",\r\n                    \"Narrative\": [\r\n                        \"1ABCDEFGHI|\",\r\n                        \"2ABCDEFGHI|\",\r\n                        \"3ABCDEFGHI|\",\r\n                        \"4ABCDEFGHI|\",\r\n                        \"5ABCDEFGHI|\",\r\n                        \"6ABCDEFGHI|\",\r\n                        \"7ABCDEFGHI|\",\r\n                        \"8ABCDEFGHI|\",\r\n                        \"9ABCDEFGHI|\",\r\n                        \"0ABCDEFGHI|\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"OTHER\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:32:59-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"DISRUPTIVE BEHAVIOR\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"BEHAVIORAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:31:10-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"PREGNANCY LACTATION STATUS\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-03-15\",\r\n                    \"Type\": \"CLINICAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:31:58-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"SAFETY ALERT\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"BEHAVIORAL\"\r\n                }\r\n            ],\r\n            \"FugitiveFelon\": \"YES\",\r\n            \"Gender\": \"MALE\",\r\n            \"GenderIdentity\": \"\",\r\n            \"ICNNumber\": \"1003905685V114024\",\r\n            \"MentalHealthProvider\": \"\",\r\n            \"Name\": \"SQA,FLAGS\",\r\n            \"PatientType\": \"SC VETERAN\",\r\n            \"PreferredName\": \"\",\r\n            \"PrimaryCarePractitioner\": \"\",\r\n            \"SensitivePatientRestrictedRecord\": 1,\r\n            \"ServiceConnected\": \"YES (10%)\",\r\n            \"ServiceConnectedCondition\": [\r\n                {\r\n                    \"Condition\": \"RIGHT LEG\"\r\n                }\r\n            ],\r\n            \"Ward\": \"\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://staff.apps-staging.va.gov/sas-sharedservices/v1",
+					"protocol": "https",
+					"host": [
+						"staff",
+						"apps-staging",
+						"va",
+						"gov"
+					],
+					"path": [
+						"sas-sharedservices",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1-Desposition Reason",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Referer",
+						"value": "https://apps-staging.va.gov",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "https://apps-staging.va.gov",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{{hostname}}/PatientSearch/{{siteId}}/alphatest\r\n\r\n\r\n\r\n{\r\n    \"Patient\": [\r\n        {\r\n            \"DFN\": 104,\r\n            \"DateOfBirth\": \"1946-07-30\",\r\n            \"DateOfDeath\": \"2005-10-28T00:00:01-0400\",\r\n            \"DemographicsNeedUpdate\": 1,\r\n            \"DemographicsUpdated\": \"2005-10-28\",\r\n            \"Eligibility\": [\r\n                {\r\n                    \"PrimaryEligibilityCode\": \"SC LESS THAN 50%\",\r\n                    \"PrimaryEligibilityCodeType\": \"VETERAN\"\r\n                },\r\n                {\r\n                    \"SecondaryEligibilityCode\": \"EMPLOYEE\",\r\n                    \"SecondaryEligibilityCodeType\": \"NON-VETERAN\"\r\n                }\r\n            ],\r\n            \"Flag\": [\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T11:29:42-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"BEHAVIORAL\",\r\n                    \"Narrative\": [\r\n                        \"THIS IS TO TEST FOR vse4118 AND VSE-4563.\",\r\n                        \"1ABCDEFGHI|\",\r\n                        \"2ABCDEFGHI|\",\r\n                        \"3ABCDEFGHI|\",\r\n                        \"4ABCDEFGHI|\",\r\n                        \"5ABCDEFGHI|\",\r\n                        \"6ABCDEFGHI|\",\r\n                        \"7ABCDEFGHI|\",\r\n                        \"8ABCDEFGHI|\",\r\n                        \"9ABCDEFGHI|\",\r\n                        \"0ABCDEFGHI|\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"BEHAVIORAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T15:58:08-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"HIGH RISK FOR SUICIDE\",\r\n                    \"Narrative\": [\r\n                        \"1ABCDEFGHI|\",\r\n                        \"2ABCDEFGHI|\",\r\n                        \"3ABCDEFGHI|\",\r\n                        \"4ABCDEFGHI|\",\r\n                        \"5ABCDEFGHI|\",\r\n                        \"6ABCDEFGHI|\",\r\n                        \"7ABCDEFGHI|\",\r\n                        \"8ABCDEFGHI|\",\r\n                        \"9ABCDEFGHI|\",\r\n                        \"0ABCDEFGHI|\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-03-15\",\r\n                    \"Type\": \"CLINICAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:29:22-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"MISSING PATIENT\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-01-14\",\r\n                    \"Type\": \"CLINICAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:30:15-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"URGENT    ADDRESS AS FEMALE\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"\",\r\n                    \"Type\": \"OTHER\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:10:57-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"AT RISK PATIENT\",\r\n                    \"Narrative\": [\r\n                        \"1ABCDEFGHI|\",\r\n                        \"2ABCDEFGHI|\",\r\n                        \"3ABCDEFGHI|\",\r\n                        \"4ABCDEFGHI|\",\r\n                        \"5ABCDEFGHI|\",\r\n                        \"6ABCDEFGHI|\",\r\n                        \"7ABCDEFGHI|\",\r\n                        \"8ABCDEFGHI|\",\r\n                        \"9ABCDEFGHI|\",\r\n                        \"0ABCDEFGHI|\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"OTHER\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:32:59-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"DISRUPTIVE BEHAVIOR\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"BEHAVIORAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:31:10-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"PREGNANCY LACTATION STATUS\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-03-15\",\r\n                    \"Type\": \"CLINICAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:31:58-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"SAFETY ALERT\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"BEHAVIORAL\"\r\n                }\r\n            ],\r\n            \"FugitiveFelon\": \"YES\",\r\n            \"Gender\": \"MALE\",\r\n            \"GenderIdentity\": \"\",\r\n            \"ICNNumber\": \"1003905685V114024\",\r\n            \"MentalHealthProvider\": \"\",\r\n            \"Name\": \"SQA,FLAGS\",\r\n            \"PatientType\": \"SC VETERAN\",\r\n            \"PreferredName\": \"\",\r\n            \"PrimaryCarePractitioner\": \"\",\r\n            \"SensitivePatientRestrictedRecord\": 1,\r\n            \"ServiceConnected\": \"YES (10%)\",\r\n            \"ServiceConnectedCondition\": [\r\n                {\r\n                    \"Condition\": \"RIGHT LEG\"\r\n                }\r\n            ],\r\n            \"Ward\": \"\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://staff.apps-staging.va.gov/sas-sharedservices/v1/DispositionReasons/442",
+					"protocol": "https",
+					"host": [
+						"staff",
+						"apps-staging",
+						"va",
+						"gov"
+					],
+					"path": [
+						"sas-sharedservices",
+						"v1",
+						"DispositionReasons",
+						"442"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1-PATIENT SEARCH Staging",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Referer",
+						"value": "https://apps-staging.va.gov",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "https://apps-staging.va.gov",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Patient\": [\r\n        {\r\n            \"DFN\": 10,\r\n            \"DateOfBirth\": \"1946-07-30\",\r\n            \"DateOfDeath\": \"2005-10-28T00:00:01-0400\",\r\n            \"DemographicsNeedUpdate\": 1,\r\n            \"DemographicsUpdated\": \"2005-10-28\",\r\n            \"Eligibility\": [\r\n                {\r\n                    \"PrimaryEligibilityCode\": \"SC LESS THAN 50%\",\r\n                    \"PrimaryEligibilityCodeType\": \"VETERAN\"\r\n                },\r\n                {\r\n                    \"SecondaryEligibilityCode\": \"EMPLOYEE\",\r\n                    \"SecondaryEligibilityCodeType\": \"NON-VETERAN\"\r\n                }\r\n            ],\r\n            \"Flag\": [\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T11:29:42-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"BEHAVIORAL\",\r\n                    \"Narrative\": [\r\n                        \"THIS IS TO TEST FOR vse4118 AND VSE-4563.\",\r\n                        \"1ABCDEFGHI|\",\r\n                        \"2ABCDEFGHI|\",\r\n                        \"3ABCDEFGHI|\",\r\n                        \"4ABCDEFGHI|\",\r\n                        \"5ABCDEFGHI|\",\r\n                        \"6ABCDEFGHI|\",\r\n                        \"7ABCDEFGHI|\",\r\n                        \"8ABCDEFGHI|\",\r\n                        \"9ABCDEFGHI|\",\r\n                        \"0ABCDEFGHI|\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"BEHAVIORAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T15:58:08-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"HIGH RISK FOR SUICIDE\",\r\n                    \"Narrative\": [\r\n                        \"1ABCDEFGHI|\",\r\n                        \"2ABCDEFGHI|\",\r\n                        \"3ABCDEFGHI|\",\r\n                        \"4ABCDEFGHI|\",\r\n                        \"5ABCDEFGHI|\",\r\n                        \"6ABCDEFGHI|\",\r\n                        \"7ABCDEFGHI|\",\r\n                        \"8ABCDEFGHI|\",\r\n                        \"9ABCDEFGHI|\",\r\n                        \"0ABCDEFGHI|\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-03-15\",\r\n                    \"Type\": \"CLINICAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:29:22-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"MISSING PATIENT\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-01-14\",\r\n                    \"Type\": \"CLINICAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:30:15-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"URGENT    ADDRESS AS FEMALE\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"\",\r\n                    \"Type\": \"OTHER\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:10:57-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"AT RISK PATIENT\",\r\n                    \"Narrative\": [\r\n                        \"1ABCDEFGHI|\",\r\n                        \"2ABCDEFGHI|\",\r\n                        \"3ABCDEFGHI|\",\r\n                        \"4ABCDEFGHI|\",\r\n                        \"5ABCDEFGHI|\",\r\n                        \"6ABCDEFGHI|\",\r\n                        \"7ABCDEFGHI|\",\r\n                        \"8ABCDEFGHI|\",\r\n                        \"9ABCDEFGHI|\",\r\n                        \"0ABCDEFGHI|\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"OTHER\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:32:59-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"DISRUPTIVE BEHAVIOR\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"BEHAVIORAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:31:10-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"PREGNANCY LACTATION STATUS\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-03-15\",\r\n                    \"Type\": \"CLINICAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:31:58-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"SAFETY ALERT\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"BEHAVIORAL\"\r\n                }\r\n            ],\r\n            \"FugitiveFelon\": \"YES\",\r\n            \"Gender\": \"MALE\",\r\n            \"GenderIdentity\": \"\",\r\n            \"ICNNumber\": \"1003905685V114024\",\r\n            \"MentalHealthProvider\": \"\",\r\n            \"Name\": \"SQA,FLAGS\",\r\n            \"PatientType\": \"SC VETERAN\",\r\n            \"PreferredName\": \"\",\r\n            \"PrimaryCarePractitioner\": \"\",\r\n            \"SensitivePatientRestrictedRecord\": 1,\r\n            \"ServiceConnected\": \"YES (10%)\",\r\n            \"ServiceConnectedCondition\": [\r\n                {\r\n                    \"Condition\": \"RIGHT LEG\"\r\n                }\r\n            ],\r\n            \"Ward\": \"\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOSTNAME}}",
+					"host": [
+						"{{HOSTNAME}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1-POST-PATIENT SEARCH Staging",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Referer",
+						"value": "https://apps-staging.va.gov",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "https://apps-staging.va.gov",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Patient\": [\r\n        {\r\n            \"DFN\": 104,\r\n            \"DateOfBirth\": \"1946-07-30\",\r\n            \"DateOfDeath\": \"2005-10-28T00:00:01-0400\",\r\n            \"DemographicsNeedUpdate\": 1,\r\n            \"DemographicsUpdated\": \"2005-10-28\",\r\n            \"Eligibility\": [\r\n                {\r\n                    \"PrimaryEligibilityCode\": \"SC LESS THAN 50%\",\r\n                    \"PrimaryEligibilityCodeType\": \"VETERAN\"\r\n                },\r\n                {\r\n                    \"SecondaryEligibilityCode\": \"EMPLOYEE\",\r\n                    \"SecondaryEligibilityCodeType\": \"NON-VETERAN\"\r\n                }\r\n            ],\r\n            \"Flag\": [\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T11:29:42-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"BEHAVIORAL\",\r\n                    \"Narrative\": [\r\n                        \"THIS IS TO TEST FOR vse4118 AND VSE-4563.\",\r\n                        \"1ABCDEFGHI|\",\r\n                        \"2ABCDEFGHI|\",\r\n                        \"3ABCDEFGHI|\",\r\n                        \"4ABCDEFGHI|\",\r\n                        \"5ABCDEFGHI|\",\r\n                        \"6ABCDEFGHI|\",\r\n                        \"7ABCDEFGHI|\",\r\n                        \"8ABCDEFGHI|\",\r\n                        \"9ABCDEFGHI|\",\r\n                        \"0ABCDEFGHI|\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"BEHAVIORAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T15:58:08-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"HIGH RISK FOR SUICIDE\",\r\n                    \"Narrative\": [\r\n                        \"1ABCDEFGHI|\",\r\n                        \"2ABCDEFGHI|\",\r\n                        \"3ABCDEFGHI|\",\r\n                        \"4ABCDEFGHI|\",\r\n                        \"5ABCDEFGHI|\",\r\n                        \"6ABCDEFGHI|\",\r\n                        \"7ABCDEFGHI|\",\r\n                        \"8ABCDEFGHI|\",\r\n                        \"9ABCDEFGHI|\",\r\n                        \"0ABCDEFGHI|\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-03-15\",\r\n                    \"Type\": \"CLINICAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:29:22-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"MISSING PATIENT\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-01-14\",\r\n                    \"Type\": \"CLINICAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:30:15-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"URGENT    ADDRESS AS FEMALE\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"\",\r\n                    \"Type\": \"OTHER\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:10:57-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"AT RISK PATIENT\",\r\n                    \"Narrative\": [\r\n                        \"1ABCDEFGHI|\",\r\n                        \"2ABCDEFGHI|\",\r\n                        \"3ABCDEFGHI|\",\r\n                        \"4ABCDEFGHI|\",\r\n                        \"5ABCDEFGHI|\",\r\n                        \"6ABCDEFGHI|\",\r\n                        \"7ABCDEFGHI|\",\r\n                        \"8ABCDEFGHI|\",\r\n                        \"9ABCDEFGHI|\",\r\n                        \"0ABCDEFGHI|\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"OTHER\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:32:59-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"DISRUPTIVE BEHAVIOR\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"BEHAVIORAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:31:10-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"PREGNANCY LACTATION STATUS\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-03-15\",\r\n                    \"Type\": \"CLINICAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:31:58-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"SAFETY ALERT\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"BEHAVIORAL\"\r\n                }\r\n            ],\r\n            \"FugitiveFelon\": \"YES\",\r\n            \"Gender\": \"MALE\",\r\n            \"GenderIdentity\": \"\",\r\n            \"ICNNumber\": \"1003905685V114024\",\r\n            \"MentalHealthProvider\": \"\",\r\n            \"Name\": \"SQA,FLAGS\",\r\n            \"PatientType\": \"SC VETERAN\",\r\n            \"PreferredName\": \"\",\r\n            \"PrimaryCarePractitioner\": \"\",\r\n            \"SensitivePatientRestrictedRecord\": 1,\r\n            \"ServiceConnected\": \"YES (10%)\",\r\n            \"ServiceConnectedCondition\": [\r\n                {\r\n                    \"Condition\": \"RIGHT LEG\"\r\n                }\r\n            ],\r\n            \"Ward\": \"\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOSTNAME}}",
+					"host": [
+						"{{HOSTNAME}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1-POST-PATIENT SEARCH Staging Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Referer",
+						"value": "https://apps-staging.va.gov",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "https://apps-staging.va.gov",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Patient\": [\r\n        {\r\n            \"DFN\": 104,\r\n            \"DateOfBirth\": \"1946-07-30\",\r\n            \"DateOfDeath\": \"2005-10-28T00:00:01-0400\",\r\n            \"DemographicsNeedUpdate\": 1,\r\n            \"DemographicsUpdated\": \"2005-10-28\",\r\n            \"Eligibility\": [\r\n                {\r\n                    \"PrimaryEligibilityCode\": \"SC LESS THAN 50%\",\r\n                    \"PrimaryEligibilityCodeType\": \"VETERAN\"\r\n                },\r\n                {\r\n                    \"SecondaryEligibilityCode\": \"EMPLOYEE\",\r\n                    \"SecondaryEligibilityCodeType\": \"NON-VETERAN\"\r\n                }\r\n            ],\r\n            \"Flag\": [\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T11:29:42-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"BEHAVIORAL\",\r\n                    \"Narrative\": [\r\n                        \"THIS IS TO TEST FOR vse4118 AND VSE-4563.\",\r\n                        \"1ABCDEFGHI|\",\r\n                        \"2ABCDEFGHI|\",\r\n                        \"3ABCDEFGHI|\",\r\n                        \"4ABCDEFGHI|\",\r\n                        \"5ABCDEFGHI|\",\r\n                        \"6ABCDEFGHI|\",\r\n                        \"7ABCDEFGHI|\",\r\n                        \"8ABCDEFGHI|\",\r\n                        \"9ABCDEFGHI|\",\r\n                        \"0ABCDEFGHI|\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"BEHAVIORAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T15:58:08-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"HIGH RISK FOR SUICIDE\",\r\n                    \"Narrative\": [\r\n                        \"1ABCDEFGHI|\",\r\n                        \"2ABCDEFGHI|\",\r\n                        \"3ABCDEFGHI|\",\r\n                        \"4ABCDEFGHI|\",\r\n                        \"5ABCDEFGHI|\",\r\n                        \"6ABCDEFGHI|\",\r\n                        \"7ABCDEFGHI|\",\r\n                        \"8ABCDEFGHI|\",\r\n                        \"9ABCDEFGHI|\",\r\n                        \"0ABCDEFGHI|\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-03-15\",\r\n                    \"Type\": \"CLINICAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:29:22-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"MISSING PATIENT\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-01-14\",\r\n                    \"Type\": \"CLINICAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:30:15-0500\",\r\n                    \"Category\": \"I (NATIONAL)\",\r\n                    \"FlagName\": \"URGENT    ADDRESS AS FEMALE\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"\",\r\n                    \"Type\": \"OTHER\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:10:57-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"AT RISK PATIENT\",\r\n                    \"Narrative\": [\r\n                        \"1ABCDEFGHI|\",\r\n                        \"2ABCDEFGHI|\",\r\n                        \"3ABCDEFGHI|\",\r\n                        \"4ABCDEFGHI|\",\r\n                        \"5ABCDEFGHI|\",\r\n                        \"6ABCDEFGHI|\",\r\n                        \"7ABCDEFGHI|\",\r\n                        \"8ABCDEFGHI|\",\r\n                        \"9ABCDEFGHI|\",\r\n                        \"0ABCDEFGHI|\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"OTHER\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:32:59-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"DISRUPTIVE BEHAVIOR\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"BEHAVIORAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:31:10-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"PREGNANCY LACTATION STATUS\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-03-15\",\r\n                    \"Type\": \"CLINICAL\"\r\n                },\r\n                {\r\n                    \"AssignedDate\": \"2022-12-15T16:31:58-0500\",\r\n                    \"Category\": \"II (LOCAL)\",\r\n                    \"FlagName\": \"SAFETY ALERT\",\r\n                    \"Narrative\": [\r\n                        \"TEST FLAG PATIENT\"\r\n                    ],\r\n                    \"OriginatingSiteID\": 442,\r\n                    \"OriginatingSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"OwnerSiteID\": 442,\r\n                    \"OwnerSiteName\": \"CHEYENNE VA MEDICAL\",\r\n                    \"ReviewDate\": \"2023-12-15\",\r\n                    \"Type\": \"BEHAVIORAL\"\r\n                }\r\n            ],\r\n            \"FugitiveFelon\": \"YES\",\r\n            \"Gender\": \"MALE\",\r\n            \"GenderIdentity\": \"\",\r\n            \"ICNNumber\": \"1003905685V114024\",\r\n            \"MentalHealthProvider\": \"\",\r\n            \"Name\": \"SQA,FLAGS\",\r\n            \"PatientType\": \"SC VETERAN\",\r\n            \"PreferredName\": \"\",\r\n            \"PrimaryCarePractitioner\": \"\",\r\n            \"SensitivePatientRestrictedRecord\": 1,\r\n            \"ServiceConnected\": \"YES (10%)\",\r\n            \"ServiceConnectedCondition\": [\r\n                {\r\n                    \"Condition\": \"RIGHT LEG\"\r\n                }\r\n            ],\r\n            \"Ward\": \"\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sas.mapsandbox.net/sas-sharedservices/v1",
+					"protocol": "https",
+					"host": [
+						"sas",
+						"mapsandbox",
+						"net"
+					],
+					"path": [
+						"sas-sharedservices",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2-ALL CANCEL COMMENTS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"Comment\": \"Canceled due to COVID19. Appointment converted to a Telephone appointment\",\r\n        \"HashTag\": \"COVID19 #TELE#\",\r\n        \"NationalFlag\": 1\r\n        },\r\n\r\n    {\r\n        \"Comment\": \"Canceled due to COVID19. Rescheduled/not rescheduled\",\r\n        \"HashTag\": \"COVID19\",\r\n        \"NationalFlag\": 1\r\n    },\r\n\r\n    {\r\n        \"Comment\": \"Canceled appointment converted to a Telephone appointment. Not due to COVID19\",\r\n        \"HashTag\": \"#TELE#\",\r\n        \"NationalFlag\": 1\r\n    },\r\n    {\r\n        \"Comment\": \"Canceled appointment converted to a VVC appointment. Not due to COVID19\",\r\n        \"HashTag\": \"#VVC#\",\r\n        \"NationalFlag\": 1\r\n    },\r\n    {\r\n        \"Comment\": \"Canceled due to COVID19. Appointment converted to a VVC appointment\",\r\n        \"HashTag\": \"COVID19 #VVC#\",\r\n        \"NationalFlag\": 1\r\n    },\r\n    {\r\n        \"Comment\": \"TESTING LAB\",\r\n        \"HashTag\": \"LAB\",\r\n        \"NationalFlag\": 0\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://staff.apps-staging.va.gov/sas-sharedservices/v1",
+					"protocol": "https",
+					"host": [
+						"staff",
+						"apps-staging",
+						"va",
+						"gov"
+					],
+					"path": [
+						"sas-sharedservices",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2-PUT-ALL CANCEL COMMENTS",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"Comment\": \"Canceled due to COVID19. Appointment converted to a Telephone appointment\",\r\n        \"HashTag\": \"COVID19 #TELE#\",\r\n        \"NationalFlag\": 1\r\n        },\r\n\r\n    {\r\n        \"Comment\": \"Canceled due to COVID19. Rescheduled/not rescheduled\",\r\n        \"HashTag\": \"COVID19\",\r\n        \"NationalFlag\": 1\r\n    },\r\n\r\n    {\r\n        \"Comment\": \"Canceled appointment converted to a Telephone appointment. Not due to COVID19\",\r\n        \"HashTag\": \"#TELE#\",\r\n        \"NationalFlag\": 1\r\n    },\r\n    {\r\n        \"Comment\": \"Canceled appointment converted to a VVC appointment. Not due to COVID19\",\r\n        \"HashTag\": \"#VVC#\",\r\n        \"NationalFlag\": 1\r\n    },\r\n    {\r\n        \"Comment\": \"Canceled due to COVID19. Appointment converted to a VVC appointment\",\r\n        \"HashTag\": \"COVID19 #VVC#\",\r\n        \"NationalFlag\": 1\r\n    },\r\n    {\r\n        \"Comment\": \"TESTING LAB\",\r\n        \"HashTag\": \"LAB\",\r\n        \"NationalFlag\": 0\r\n    }\r\n]\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://staff.apps-staging.va.gov/queueing/v1/",
+					"protocol": "https",
+					"host": [
+						"staff",
+						"apps-staging",
+						"va",
+						"gov"
+					],
+					"path": [
+						"queueing",
+						"v1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2-POST-ALL CANCEL COMMENTS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"Comment\": \"Canceled due to COVID19. Appointment converted to a Telephone appointment\",\r\n        \"HashTag\": \"COVID19 #TELE#\",\r\n        \"NationalFlag\": 1\r\n        },\r\n\r\n    {\r\n        \"Comment\": \"Canceled due to COVID19. Rescheduled/not rescheduled\",\r\n        \"HashTag\": \"COVID19\",\r\n        \"NationalFlag\": 1\r\n    },\r\n\r\n    {\r\n        \"Comment\": \"Canceled appointment converted to a Telephone appointment. Not due to COVID19\",\r\n        \"HashTag\": \"#TELE#\",\r\n        \"NationalFlag\": 1\r\n    },\r\n    {\r\n        \"Comment\": \"Canceled appointment converted to a VVC appointment. Not due to COVID19\",\r\n        \"HashTag\": \"#VVC#\",\r\n        \"NationalFlag\": 1\r\n    },\r\n    {\r\n        \"Comment\": \"Canceled due to COVID19. Appointment converted to a VVC appointment\",\r\n        \"HashTag\": \"COVID19 #VVC#\",\r\n        \"NationalFlag\": 1\r\n    },\r\n    {\r\n        \"Comment\": \"TESTING LAB\",\r\n        \"HashTag\": \"LAB\",\r\n        \"NationalFlag\": 0\r\n    }\r\n]\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://staff.apps-staging.va.gov/queueing/v1/",
+					"protocol": "https",
+					"host": [
+						"staff",
+						"apps-staging",
+						"va",
+						"gov"
+					],
+					"path": [
+						"queueing",
+						"v1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3-GET Appointment Type",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AppointmentTypes\": [\r\n        \"COMPENSATION & PENSION\",\r\n        \"CLASS II DENTAL\",\r\n        \"ORGAN DONORS\",\r\n        \"EMPLOYEE\",\r\n        \"PRIMA FACIA\",\r\n        \"RESEARCH\",\r\n        \"COLLATERAL OF VET.\",\r\n        \"SHARING AGREEMENT\",\r\n        \"REGULAR\",\r\n        \"COMPUTER GENERATED\",\r\n        \"SERVICE CONNECTED\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOSTNAME}}/AppointmentTypes/{{station_number}}/104",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"AppointmentTypes",
+						"{{station_number}}",
+						"104"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2-GET cancel Appointment",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AppointmentTypes\": [\r\n        \"COMPENSATION & PENSION\",\r\n        \"CLASS II DENTAL\",\r\n        \"ORGAN DONORS\",\r\n        \"EMPLOYEE\",\r\n        \"PRIMA FACIA\",\r\n        \"RESEARCH\",\r\n        \"COLLATERAL OF VET.\",\r\n        \"SHARING AGREEMENT\",\r\n        \"REGULAR\",\r\n        \"COMPUTER GENERATED\",\r\n        \"SERVICE CONNECTED\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://staff.apps-staging.va.gov/cancelcomments/104",
+					"protocol": "https",
+					"host": [
+						"staff",
+						"apps-staging",
+						"va",
+						"gov"
+					],
+					"path": [
+						"cancelcomments",
+						"104"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4-GET-Search Recall Clinic",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Clinic\": [\r\n        {\r\n            \"Abbreviation\": \"CHY\",\r\n            \"IEN\": 2147,\r\n            \"Name\": \"CHY CARDIOLOGY\",\r\n            \"Non-CountClinic\": \"NO\",\r\n            \"PatientFriendlyName\": \"CHY CARDIOLOGY\",\r\n            \"PrimaryAMISStopCode\": 303,\r\n            \"SecondaryAMISStopCode\": 179,\r\n            \"Status\": \"ACTIVE\"\r\n        },\r\n        {\r\n            \"Abbreviation\": \"ECON\",\r\n            \"IEN\": 4055,\r\n            \"Name\": \"CHY CARDIOLOGY E-CONSULT-X\",\r\n            \"Non-CountClinic\": \"NO\",\r\n            \"PatientFriendlyName\": \"E-CONSULT-X\",\r\n            \"PrimaryAMISStopCode\": 303,\r\n            \"SecondaryAMISStopCode\": 179,\r\n            \"Status\": \"ACTIVE\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sas.mapsandbox.net/sas-sharedservices/v1",
+					"protocol": "https",
+					"host": [
+						"sas",
+						"mapsandbox",
+						"net"
+					],
+					"path": [
+						"sas-sharedservices",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5- GET-RECALL-Provide Search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Provider\": [\r\n        {\r\n            \"CommercialPhone\": \"\",\r\n            \"DigitalPager\": \"\",\r\n            \"Division\": \"CHEYENNE VAMROC\",\r\n            \"Email\": \"\",\r\n            \"Fax\": \"\",\r\n            \"Homephone\": \"(111) 111-1111\",\r\n            \"IEN\": 79,\r\n            \"Name\": \"BLACKSTAD,GONZALO W MD\",\r\n            \"Officephone\": \"(777) 777-7777\",\r\n            \"PersonClass\": [\r\n                \"Physicians (M.D. and D.O.)\",\r\n                \"Allopathic and Osteopathic Physicians\"\r\n            ],\r\n            \"Phone3\": \"\",\r\n            \"Phone4\": \"\",\r\n            \"ProviderClass\": \"PHYSICIAN\",\r\n            \"ProviderSecID\": \"\",\r\n            \"Team\": \"ZZGREEN\",\r\n            \"Title\": \"PHYSICIAN\",\r\n            \"UserClass\": [\r\n                \"\"\r\n            ],\r\n            \"VoicePager\": \"(111) 111-1111\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sas.mapsandbox.net/sas-sharedservices/v1",
+					"protocol": "https",
+					"host": [
+						"sas",
+						"mapsandbox",
+						"net"
+					],
+					"path": [
+						"sas-sharedservices",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6- GET-Cancel Reason",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"CancelReasons\": [\r\n        {\r\n            \"ReasonIEN\": 10,\r\n            \"ReasonName\": \"APPOINTMENT NO LONGER REQUIRED\",\r\n            \"ReasonType\": \"CLINIC\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 15,\r\n            \"ReasonName\": \"BLOCK AND MOVE\",\r\n            \"ReasonType\": \"CLINIC\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 13,\r\n            \"ReasonName\": \"CLINIC CANCELLED\",\r\n            \"ReasonType\": \"CLINIC\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 7,\r\n            \"ReasonName\": \"CLINIC STAFFING\",\r\n            \"ReasonType\": \"CLINIC\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 6,\r\n            \"ReasonName\": \"DEATH IN FAMILY\",\r\n            \"ReasonType\": \"PATIENT\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 18,\r\n            \"ReasonName\": \"DO NOT RESCHEDULE\",\r\n            \"ReasonType\": \"PATIENT\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 2,\r\n            \"ReasonName\": \"INPATIENT STATUS\",\r\n            \"ReasonType\": \"CLINIC\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 11,\r\n            \"ReasonName\": \"OTHER\",\r\n            \"ReasonType\": \"BOTH\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 14,\r\n            \"ReasonName\": \"PANDEMIC\",\r\n            \"ReasonType\": \"BOTH\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 3,\r\n            \"ReasonName\": \"PATIENT DEATH\",\r\n            \"ReasonType\": \"CLINIC\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 9,\r\n            \"ReasonName\": \"PATIENT NOT ELIGIBLE\",\r\n            \"ReasonType\": \"CLINIC\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 16,\r\n            \"ReasonName\": \"RESCHEDULE - CALL BACK\",\r\n            \"ReasonType\": \"PATIENT\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 17,\r\n            \"ReasonName\": \"RESCHEDULE - VET WILL CALL\",\r\n            \"ReasonType\": \"PATIENT\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 8,\r\n            \"ReasonName\": \"SCHEDULING CONFLICT/ERROR\",\r\n            \"ReasonType\": \"CLINIC\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 12,\r\n            \"ReasonName\": \"TRANSFER OPT CARE TO OTHER VA\",\r\n            \"ReasonType\": \"BOTH\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 4,\r\n            \"ReasonName\": \"TRAVEL DIFFICULTY\",\r\n            \"ReasonType\": \"PATIENT\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 5,\r\n            \"ReasonName\": \"UNABLE TO KEEP APPOINTMENT\",\r\n            \"ReasonType\": \"PATIENT\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 20,\r\n            \"ReasonName\": \"WALKIN ENTERED IN ERROR\",\r\n            \"ReasonType\": \"CLINIC\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 19,\r\n            \"ReasonName\": \"WALKIN NO LONGER NECESSARY\",\r\n            \"ReasonType\": \"PATIENT\"\r\n        },\r\n        {\r\n            \"ReasonIEN\": 1,\r\n            \"ReasonName\": \"WEATHER\",\r\n            \"ReasonType\": \"BOTH\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sas.mapsandbox.net/sas-sharedservices/v1",
+					"protocol": "https",
+					"host": [
+						"sas",
+						"mapsandbox",
+						"net"
+					],
+					"path": [
+						"sas-sharedservices",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8-GET Clinic by Provider",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AssociatedClinicIEN\": [\r\n        317,\r\n        2147,\r\n        3753,\r\n        3754,\r\n        5188,\r\n        5226\r\n    ],\r\n    \"AssociatedClinicName\": [\r\n        \"CLINIC OF JURISDICTION\",\r\n        \"CHY CARDIOLOGY\",\r\n        \"CHY ACUTE CARE 1\",\r\n        \"CHY ACUTE CARE 2\",\r\n        \"VSE EASTERN\",\r\n        \"VSE CLS CLINIC 2\"\r\n    ],\r\n    \"ProviderName\": \"BUTLER,BRANDON L\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sas.mapsandbox.net/sas-sharedservices/v1",
+					"protocol": "https",
+					"host": [
+						"sas",
+						"mapsandbox",
+						"net"
+					],
+					"path": [
+						"sas-sharedservices",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9-GET SPECIAL NEED",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Patient\": [\r\n        {\r\n            \"PatientName\": \"MACHO MAN,SNAPNTOASLIMJIM\",\r\n            \"SpecialNeedsAndPreferences\": [\r\n                {\r\n                    \"DateTimeAdded\": \"2023-02-13T18:36-0500\",\r\n                    \"EnteredByIEN\": 520881805,\r\n                    \"EnteredByName\": \"BUTLER,BRANDON L\",\r\n                    \"InactivatedBy\": \"BUTLER,BRANDON L\",\r\n                    \"InactivatedByIEN\": 520881805,\r\n                    \"InactiveDate\": \"2023-02-13T20:31-0500\",\r\n                    \"Preference\": \"GENDER SPECIFIC PROVIDER\",\r\n                    \"Remarks\": [\r\n                        \"TESTING FIRST REMARK\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"DateTimeAdded\": \"2023-02-13T18:38-0500\",\r\n                    \"EnteredByIEN\": 520881805,\r\n                    \"EnteredByName\": \"BUTLER,BRANDON L\",\r\n                    \"InactivatedBy\": \"\",\r\n                    \"InactivatedByIEN\": \"\",\r\n                    \"InactiveDate\": \"\",\r\n                    \"Preference\": \"HEARING IMPAIRED\",\r\n                    \"Remarks\": [\r\n                        \"TESTING SECOND REMARK\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"DateTimeAdded\": \"2023-02-13T18:38-0500\",\r\n                    \"EnteredByIEN\": 520881805,\r\n                    \"EnteredByName\": \"BUTLER,BRANDON L\",\r\n                    \"InactivatedBy\": \"BUTLER,BRANDON L\",\r\n                    \"InactivatedByIEN\": 520881805,\r\n                    \"InactiveDate\": \"2023-02-13T20:32-0500\",\r\n                    \"Preference\": \"LANGUAGE PREFERENCE\",\r\n                    \"Remarks\": [\r\n                        \"TESTING THIRD REMARK\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"DateTimeAdded\": \"2023-02-13T18:39-0500\",\r\n                    \"EnteredByIEN\": 520881805,\r\n                    \"EnteredByName\": \"BUTLER,BRANDON L\",\r\n                    \"InactivatedBy\": \"\",\r\n                    \"InactivatedByIEN\": \"\",\r\n                    \"InactiveDate\": \"\",\r\n                    \"Preference\": \"NEEDS ESCORT\",\r\n                    \"Remarks\": [\r\n                        \"TESTING FOURTH REMARK\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"DateTimeAdded\": \"2023-02-13T18:39-0500\",\r\n                    \"EnteredByIEN\": 520881805,\r\n                    \"EnteredByName\": \"BUTLER,BRANDON L\",\r\n                    \"InactivatedBy\": \"\",\r\n                    \"InactivatedByIEN\": \"\",\r\n                    \"InactiveDate\": \"\",\r\n                    \"Preference\": \"ON STRETCHER\",\r\n                    \"Remarks\": [\r\n                        \"TESTING FIFTH REMARK\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"DateTimeAdded\": \"2023-02-13T18:39-0500\",\r\n                    \"EnteredByIEN\": 520881805,\r\n                    \"EnteredByName\": \"BUTLER,BRANDON L\",\r\n                    \"InactivatedBy\": \"\",\r\n                    \"InactivatedByIEN\": \"\",\r\n                    \"InactiveDate\": \"\",\r\n                    \"Preference\": \"SPECIAL MODE OF TRANSPORTATION\",\r\n                    \"Remarks\": [\r\n                        \"TESTING SIXTH REMARK\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"DateTimeAdded\": \"2023-02-13T18:40-0500\",\r\n                    \"EnteredByIEN\": 520881805,\r\n                    \"EnteredByName\": \"BUTLER,BRANDON L\",\r\n                    \"InactivatedBy\": \"\",\r\n                    \"InactivatedByIEN\": \"\",\r\n                    \"InactiveDate\": \"\",\r\n                    \"Preference\": \"MORNING\",\r\n                    \"Remarks\": [\r\n                        \"TESTING SEVENTH REMARK\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"DateTimeAdded\": \"2023-02-13T18:40-0500\",\r\n                    \"EnteredByIEN\": 520881805,\r\n                    \"EnteredByName\": \"BUTLER,BRANDON L\",\r\n                    \"InactivatedBy\": \"\",\r\n                    \"InactivatedByIEN\": \"\",\r\n                    \"InactiveDate\": \"\",\r\n                    \"Preference\": \"FRIDAY\",\r\n                    \"Remarks\": [\r\n                        \"TESTING 8TH REMARK\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"DateTimeAdded\": \"2023-02-13T21:25-0500\",\r\n                    \"EnteredByIEN\": 520881805,\r\n                    \"EnteredByName\": \"BUTLER,BRANDON L\",\r\n                    \"InactivatedBy\": \"\",\r\n                    \"InactivatedByIEN\": \"\",\r\n                    \"InactiveDate\": \"\",\r\n                    \"Preference\": \"AFTERNOON\",\r\n                    \"Remarks\": [\r\n                        \"THIS IS A STUPID LONG REMARK TO MAKE SURE THE WORD PROCESSING FIELD IS \",\r\n                        \"BEHAVING, BLAH BNLAH BLAH BLAH HOW MANY CHARACHERS IS THIS IT HAS TO BE \",\r\n                        \"CLOSE TO 80, WORDS WORDS WORDS THERES SO MANY WORDS ERMUHGAWD THE \",\r\n                        \"WORDS!!! MOM MAKE IT STOP\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"DateTimeAdded\": \"2023-02-13T20:46-0500\",\r\n                    \"EnteredByIEN\": 520881805,\r\n                    \"EnteredByName\": \"BUTLER,BRANDON L\",\r\n                    \"InactivatedBy\": \"BUTLER,BRANDON L\",\r\n                    \"InactivatedByIEN\": 520881805,\r\n                    \"InactiveDate\": \"2023-02-13\",\r\n                    \"Preference\": \"WEDNESDAY\",\r\n                    \"Remarks\": [\r\n                        \"THIS HAS TO BE THE 20TH ONE\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"DateTimeAdded\": \"2023-02-13T21:27-0500\",\r\n                    \"EnteredByIEN\": 520881805,\r\n                    \"EnteredByName\": \"BUTLER,BRANDON L\",\r\n                    \"InactivatedBy\": \"\",\r\n                    \"InactivatedByIEN\": \"\",\r\n                    \"InactiveDate\": \"\",\r\n                    \"Preference\": \"THURSDAY\",\r\n                    \"Remarks\": [\r\n                        \"I LOST COUNT. THIS IS A REMARK.\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"DateTimeAdded\": \"2023-02-13T21:30-0500\",\r\n                    \"EnteredByIEN\": 520881805,\r\n                    \"EnteredByName\": \"BUTLER,BRANDON L\",\r\n                    \"InactivatedBy\": \"\",\r\n                    \"InactivatedByIEN\": \"\",\r\n                    \"InactiveDate\": \"\",\r\n                    \"Preference\": \"MONDAY\",\r\n                    \"Remarks\": [\r\n                        \"THEY SHOULD HAVE CALLED THE REMARK A COMMENT. IDK REMARKS JUST SOUND \",\r\n                        \"LAME DUDE\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"DateTimeAdded\": \"2023-02-13T21:30-0500\",\r\n                    \"EnteredByIEN\": 520881805,\r\n                    \"EnteredByName\": \"BUTLER,BRANDON L\",\r\n                    \"InactivatedBy\": \"\",\r\n                    \"InactivatedByIEN\": \"\",\r\n                    \"InactiveDate\": \"\",\r\n                    \"Preference\": \"TUESDAY\",\r\n                    \"Remarks\": [\r\n                        \"GENERIC MAC&CHEESE > EXPENSIVE4NOGUDREASON MAC&CHEESE\"\r\n                    ]\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sas.mapsandbox.net/sas-sharedservices/v1",
+					"protocol": "https",
+					"host": [
+						"sas",
+						"mapsandbox",
+						"net"
+					],
+					"path": [
+						"sas-sharedservices",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10-GET PATIENT INQUIRY",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"PatientInquiryDetails\": [\r\n        [\r\n            \"\",\r\n            \"\",\r\n            \"\",\r\n            \"\",\r\n            \"BUTLER,TEST; 313-07-5465 MAR 5,1991 \",\r\n            \"=============================================================================\",\r\n            \" Residential Address:                   Mailing Address: \",\r\n            \"     STREET ADDRESS UNKNOWN                 ORLANDO\",\r\n            \"     UNK. CITY/STATE                        ORLANDO,FL 32803\",\r\n            \"                                            UNITED STATES\",\r\n            \"     County: UNSPECIFIED                    County: ORANGE (095)\",\r\n            \"      Phone: 999009999                    Bad Addr: \",\r\n            \"     Office: UNSPECIFIED                      Cell: UNSPECIFIED\",\r\n            \"                                            E-mail: UNSPECIFIED\",\r\n            \"\",\r\n            \" Temporary Mailing Address:             Confidential Mailing Address: \",\r\n            \"     NO TEMPORARY MAILING ADDRESS           NONE ON FILE\",\r\n            \"\",\r\n            \"      Phone: NOT APPLICABLE                  Phone: NOT APPLICABLE\",\r\n            \"  From/To: NOT APPLICABLE                  From/To: NOT APPLICABLE\",\r\n            \"                                         Confidential Address Categories: \",\r\n            \"                                          NOT APPLICABLE\",\r\n            \"\",\r\n            \"    POS: UNSPECIFIED                      Claim #: UNSPECIFIED\",\r\n            \"  Relig: UNKNOWN/NO PREFERENCE                \",\r\n            \"   Race: UNANSWERED                     Ethnicity: DECLINED TO ANSWER \",\r\n            \"Birth Sex    :  MALE\",\r\n            \"Sexual Orientation: \",\r\n            \"Sexual Orientation Description: \",\r\n            \"Pronoun: \",\r\n            \"Pronoun Description: \",\r\n            \"Self-Identified Gender Identity: \",\r\n            \"\",\r\n            \"Language Date/Time: OCT 13,2021@11:52\",\r\n            \" Preferred Language: ENGLISH\",\r\n            \"\",\r\n            \"  Combat Vet Status: NOT ELIGIBLE\",\r\n            \"Primary Eligibility: HUMANITARIAN EMERGENCY (NOT VERIFIED)\",\r\n            \"Other Eligibilities: AID & ATTENDANCE, NSC, VA PENSION, OTHER FEDERAL AGENCY, \",\r\n            \"      Unemployable: NO\",\r\n            \"      Permanent & Total Disabled: NO\",\r\n            \"\",\r\n            \"Status      : PATIENT HAS NO INPATIENT OR LODGER ACTIVITY IN THE COMPUTER\",\r\n            \"\",\r\n            \"Future Appointments:  Date       Time  Clinic\",\r\n            \"                      ======================================================\",\r\n            \"                      04/11/2023 10:00 CHY ACUTE CARE 1 \",\r\n            \"                      04/12/2023 10:00 CHY ACUTE CARE 1 \",\r\n            \"                      04/13/2023 10:00 CHY ACUTE CARE 1 \",\r\n            \"                      04/15/2023 10:00 CHY ACUTE CARE 1 \",\r\n            \"                      04/16/2023 10:00 CHY ACUTE CARE 1 \",\r\n            \"                      04/17/2023 10:00 CHY ACUTE CARE 1 \",\r\n            \"See Scheduling options for additional appointments.\",\r\n            \"\",\r\n            \"Remarks: \",\r\n            \"\",\r\n            \"Date of Death Information\",\r\n            \"     Date of Death: \",\r\n            \"     Source of Notification: \",\r\n            \"     Updated Date/Time: JUN 03, 2021@11:06:31\",\r\n            \"     Last Edited By: BUTLER,BRANDON L\",\r\n            \"\",\r\n            \"\",\r\n            \"VHA Profiles Currently Assigned to Veteran:\",\r\n            \"   None\",\r\n            \"\",\r\n            \"Caregiver Information:\",\r\n            \"Caregiver information not currently available: ERROR:Unknown ID\",\r\n            \"\",\r\n            \"\",\r\n            \"\",\r\n            \"Enrollment Priority:                    Category: NOT ENROLLED\",\r\n            \"\",\r\n            \"\",\r\n            \"\",\r\n            \"Health Insurance Information:\",\r\n            \"   Insurance   COB Subscriber ID     Group       Holder  Effective  Expires\",\r\n            \"   ===========================================================================\",\r\n            \"   ACORDIA NA   p  333               GRP NUM 19  OTHER              \",\r\n            \"\",\r\n            \"\",\r\n            \"Service Connection/Rated Disabilities:\",\r\n            \"\",\r\n            \"         SC Percent: 55%\",\r\n            \" Rated Disabilities: NONE STATED\"\r\n        ]\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sas.mapsandbox.net/sas-sharedservices/v1",
+					"protocol": "https",
+					"host": [
+						"sas",
+						"mapsandbox",
+						"net"
+					],
+					"path": [
+						"sas-sharedservices",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11-Patient Consult Detail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://staff.apps-staging.va.gov/",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ConsultDetails\": {\r\n        \"DT\": [\r\n            \"Current Pat. Status:   Outpatient\",\r\n            \"UCID:                  442_1158326\",\r\n            \"Primary Eligibility:   HUMANITARIAN EMERGENCY (NOT VERIFIED)\",\r\n            \"Patient Type:          NSC VETERAN\",\r\n            \"OEF/OIF:               NO\",\r\n            \"\",\r\n            \"Service Connection/Rated Disabilities\",\r\n            \"SC Percent:            55%\",\r\n            \"Rated Disabilities:    NONE STATED\",\r\n            \"\",\r\n            \"Order Information\",\r\n            \"To Service:            CHY CARDIOLOGY INPATIENT HATTEL\",\r\n            \"From Service:          CHY CARDIOLOGY\",\r\n            \"Requesting Provider:   BARLA,SRAVANTHI\",\r\n            \"Service is to be rendered on an OUTPATIENT basis\",\r\n            \"Place:                 Consultant's choice\",\r\n            \"Urgency:               Routine\",\r\n            \"Clinically Ind. Date:  Aug 17, 2021\",\r\n            \"DST ID:                \",\r\n            \"Orderable Item:        CHY CARDIOLOGY INPATIENT HATTEL\",\r\n            \"Consult:               Consult Request\",\r\n            \"Reason For Request:\",\r\n            \"CONSULT 4\",\r\n            \" \",\r\n            \"Inter-facility Information\",\r\n            \"This is not an inter-facility consult request.\",\r\n            \"\",\r\n            \"Status:                ACTIVE\",\r\n            \"Last Action:           STATUS CHANGE\",\r\n            \"\",\r\n            \"Facility\",\r\n            \" Activity                Date/Time/Zone      Responsible Person  Entered By\",\r\n            \"-------------------------------------------------------------------------------\",\r\n            \" CPRS RELEASED ORDER     08/13/21 10:17      BARLA,SRAVANTHI     BARLA,SRAVANTHI\",\r\n            \" SCHEDULED               08/13/21 11:54      BARLA,SRAVANTHI     BUTLER,BRANDON L\",\r\n            \"CHY CARDIOLOGY Consult Appt. on 08/13/21 @ 12:30\",\r\n            \"\",\r\n            \"\",\r\n            \" STATUS CHANGE           08/13/21 11:55      BARLA,SRAVANTHI     BUTLER,BRANDON L\",\r\n            \"CHY CARDIOLOGY Appt. on 08/13/21 @ 12:30 was a no-show.\",\r\n            \"\",\r\n            \"\",\r\n            \"Note: TIME ZONE is local if not indicated\",\r\n            \"\",\r\n            \"No local TIU results or Medicine results available for this consult\",\r\n            \"==================================== END =====================================\"\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOSTNAME}}/ConsultDetails/442/123",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"ConsultDetails",
+						"442",
+						"123"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "11-Patient Consult Detail",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ConsultDetails\": {\r\n        \"DT\": [\r\n            \"Current Pat. Status:   Outpatient\",\r\n            \"UCID:                  442_1158326\",\r\n            \"Primary Eligibility:   HUMANITARIAN EMERGENCY (NOT VERIFIED)\",\r\n            \"Patient Type:          NSC VETERAN\",\r\n            \"OEF/OIF:               NO\",\r\n            \"\",\r\n            \"Service Connection/Rated Disabilities\",\r\n            \"SC Percent:            55%\",\r\n            \"Rated Disabilities:    NONE STATED\",\r\n            \"\",\r\n            \"Order Information\",\r\n            \"To Service:            CHY CARDIOLOGY INPATIENT HATTEL\",\r\n            \"From Service:          CHY CARDIOLOGY\",\r\n            \"Requesting Provider:   BARLA,SRAVANTHI\",\r\n            \"Service is to be rendered on an OUTPATIENT basis\",\r\n            \"Place:                 Consultant's choice\",\r\n            \"Urgency:               Routine\",\r\n            \"Clinically Ind. Date:  Aug 17, 2021\",\r\n            \"DST ID:                \",\r\n            \"Orderable Item:        CHY CARDIOLOGY INPATIENT HATTEL\",\r\n            \"Consult:               Consult Request\",\r\n            \"Reason For Request:\",\r\n            \"CONSULT 4\",\r\n            \" \",\r\n            \"Inter-facility Information\",\r\n            \"This is not an inter-facility consult request.\",\r\n            \"\",\r\n            \"Status:                ACTIVE\",\r\n            \"Last Action:           STATUS CHANGE\",\r\n            \"\",\r\n            \"Facility\",\r\n            \" Activity                Date/Time/Zone      Responsible Person  Entered By\",\r\n            \"-------------------------------------------------------------------------------\",\r\n            \" CPRS RELEASED ORDER     08/13/21 10:17      BARLA,SRAVANTHI     BARLA,SRAVANTHI\",\r\n            \" SCHEDULED               08/13/21 11:54      BARLA,SRAVANTHI     BUTLER,BRANDON L\",\r\n            \"CHY CARDIOLOGY Consult Appt. on 08/13/21 @ 12:30\",\r\n            \"\",\r\n            \"\",\r\n            \" STATUS CHANGE           08/13/21 11:55      BARLA,SRAVANTHI     BUTLER,BRANDON L\",\r\n            \"CHY CARDIOLOGY Appt. on 08/13/21 @ 12:30 was a no-show.\",\r\n            \"\",\r\n            \"\",\r\n            \"Note: TIME ZONE is local if not indicated\",\r\n            \"\",\r\n            \"No local TIU results or Medicine results available for this consult\",\r\n            \"==================================== END =====================================\"\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}/ConsultDetails/442/",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"ConsultDetails",
+								"442",
+								""
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Jul 2023 00:17:57 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Server",
+							"value": "openresty"
+						},
+						{
+							"key": "vary",
+							"value": "Origin,Access-Control-Request-Method,Access-Control-Request-Headers"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "expires",
+							"value": "0"
+						},
+						{
+							"key": "strict-transport-security",
+							"value": "max-age=31536000 ; includeSubDomains"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "DENY"
+						},
+						{
+							"key": "content-security-policy",
+							"value": "script-src 'self'"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "4"
+						},
+						{
+							"key": "set-cookie",
+							"value": "vamfjwtv3=eyJ6aXAiOiJERUYiLCJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwiYWxnIjoiUlNBLU9BRVAtMjU2In0.YUedplTkamPQY24IoYGjEn3zw8fv_MFsGkm0EQ-RNc27ADo5Igymds0Qi2hlZFwlS4qTssWDuu7ar4W1ifOxSxq9mGcXnDUmRrfly_l2jjLTc8Wyrpbg1anyTXEL5GmVVbt7xx76EwMWEVrgwXQuJcCaZIB7_bx_LA_n4GaPGlK3i-3jRtJxMY9pSpmnu-5opikC0N3jd2oRxPpby-qQqnQmz8vZDxmdTDBSJf_rxmNE9lWumCTM0Uj6qp7ExbB0fYhJKwPnwxP9I6U1ig84tq0phV64ar5Ob4ii64LClff7rovV0tgbc2xkmPQyUK2VH8ORQyHzkxZF5L3GHl6l6w.uyihoyvL4SDL8rnQ3e-KIA.b_fv1uwkjWZGv9DfALf1BNOXrFwlgabsrlid2C-SQxpj91ht2l7zbq7yWECBKqTTOrCp2IJaU7YfSiuvEDRzcXmzM264pd0IBDN3ip3xy9Ua3h7cjDwY5jEUAxK1I9DVD4QGhsTPpwGNu_zktvBz9eTCS0rGiE7TvWIChAB0hqAxGCou6HbU8Y6yQwJJH5KsV5n1tKIkjFKorUJr1Fd1fWh1g5Gqfquhq9aVE9xIPkSYo44LaKHHyZNrEuCx-tpmwdy_M72dGduQ_5vMdaUSgtYYmPbVwy7bZU5auvUTP3rX7aIkwcL-jgf-F9SjaBA3oDZ-3j7DVVOvYGjCl08s3jFZep9WKluKS5g4bQtLaHp2yROJYYaGdPwJFtk0QaA68Vis3aIzs43VGjHvbkLfXMIp3G5O6n_wGT4UyQRIVDvphRNbVppEQrGfthiaAwrEEoDAPPbfrD6sc-7wp5s9RHU-EHbMrmq-ypKPzILFvcnW9V0ZYJ_nmPBLOndvPOY_63lH2UWs5TaZyiFvOPa1_151kV1nL3prYQZRR9xVvufSmKMyq0dRZw7CDdWm_TZEyYs4K5aBnZJfPejEc56sLbe5GNl_7jCUgBQtvV6sACt_ZnhZ8yPqdPTbFBvTGjnm.ZNAdAtc_EJwb2ephWgimVqKB2q0OyUttUXIfH5kaxoA; path=/; SameSite=Lax; HttpOnly"
+						},
+						{
+							"key": "set-cookie",
+							"value": "vamftimeoutv1=1690504377; SameSite=Lax; path=/"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "12-GET LETTER TYPES",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"LetterType\": [\r\n        {\r\n            \"Name\": \"NO-SHOW \",\r\n            \"Type\": \"N\"\r\n        },\r\n        {\r\n            \"Name\": \"CLINIC CANCELLED \",\r\n            \"Type\": \"C\"\r\n        },\r\n        {\r\n            \"Name\": \"PRE-APPOINTMENT\",\r\n            \"Type\": \"P\"\r\n        },\r\n        {\r\n            \"Name\": \"APPOINTMENT CANCELLED\",\r\n            \"Type\": \"A\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOSTNAME}}/LetterTypes/{{station_number}}",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"LetterTypes",
+						"{{station_number}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13-PRINT APPT LETTER",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Letters\": [\r\n        {\r\n            \"AppointmentID\": 252500,\r\n            \"Text\": [\r\n                \"                                                                03/06/2023\",\r\n                \"                                                                M5864\",\r\n                \"\",\r\n                \"\",\r\n                \"\",\r\n                \"\",\r\n                \"           KIM LDEN MOYERS\",\r\n                \"           4087 CARROWAY SEED DR\",\r\n                \"           JOHNSTOWN CO  80534\",\r\n                \"\",\r\n                \"\",\r\n                \"\",\r\n                \"\",\r\n                \"\",\r\n                \"Dear Kim Alden Moyers,\",\r\n                \"\",\r\n                \"\",\r\n                \"The following clinic appointment(s) have been cancelled:\",\r\n                \"\",\r\n                \"     Date/ime: THURSDAY  JAN 25, 2018  2:30 PM PHILIPPINE\",\r\n                \"        Clinic:  GLY OPHTHALMOLOGY TEAM 2\",\r\n                \"    Telephone:  970)313-0027\",\r\n                \"\",\r\n                \"Please contact us as soon as possible at (970)313-0027 so we may\",\r\n                \"reschedule you at your arliest convenience.\",\r\n                \" \",\r\n                \"If you have any questions about your cancelled appointment or future \",\r\n                \"appointments please contact us at (970)313-0027 and use extension 2100.\",\r\n                \" \",\r\n                \" \",\r\n                \"Sincerely,\",\r\n                \" \",\r\n                \" \",\r\n                \"Greeley VA Clinic\",\r\n                \"\",\r\n                \"\"\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOSTNAME}}/PatientRegistrationsSearch/{{station_number}}/",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"PatientRegistrationsSearch",
+						"{{station_number}}",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13-Patient Registration Search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://staff.apps-staging.va.gov/",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Letters\": [\r\n        {\r\n            \"AppointmentID\": 252500,\r\n            \"Text\": [\r\n                \"                                                                03/06/2023\",\r\n                \"                                                                M5864\",\r\n                \"\",\r\n                \"\",\r\n                \"\",\r\n                \"\",\r\n                \"           KIM LDEN MOYERS\",\r\n                \"           4087 CARROWAY SEED DR\",\r\n                \"           JOHNSTOWN CO  80534\",\r\n                \"\",\r\n                \"\",\r\n                \"\",\r\n                \"\",\r\n                \"\",\r\n                \"Dear Kim Alden Moyers,\",\r\n                \"\",\r\n                \"\",\r\n                \"The following clinic appointment(s) have been cancelled:\",\r\n                \"\",\r\n                \"     Date/ime: THURSDAY  JAN 25, 2018  2:30 PM PHILIPPINE\",\r\n                \"        Clinic:  GLY OPHTHALMOLOGY TEAM 2\",\r\n                \"    Telephone:  970)313-0027\",\r\n                \"\",\r\n                \"Please contact us as soon as possible at (970)313-0027 so we may\",\r\n                \"reschedule you at your arliest convenience.\",\r\n                \" \",\r\n                \"If you have any questions about your cancelled appointment or future \",\r\n                \"appointments please contact us at (970)313-0027 and use extension 2100.\",\r\n                \" \",\r\n                \" \",\r\n                \"Sincerely,\",\r\n                \" \",\r\n                \" \",\r\n                \"Greeley VA Clinic\",\r\n                \"\",\r\n                \"\"\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOSTNAME}}/PatientRegistrationSearch/442/7231864",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"PatientRegistrationSearch",
+						"442",
+						"7231864"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "14-PRINT APPT LETTER",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Device\": [\r\n        {\r\n            \"DisplayName\": \"P-MESSAGE-HFS\",\r\n            \"ID\": 480,\r\n            \"Location\": \"HFS FILE => MESSAGE\",\r\n            \"Name\": \"P-MESSAGE-HFS\",\r\n            \"PageLength\": 256,\r\n            \"RightMargin\": 255\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sas.mapsandbox.net/sas-sharedservices/v1",
+					"protocol": "https",
+					"host": [
+						"sas",
+						"mapsandbox",
+						"net"
+					],
+					"path": [
+						"sas-sharedservices",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-TestSite",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "15-ConsultDetails",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ConsultDetails\": {\r\n        \"DT\": [\r\n            \"Current Pat. Status:   Outpatient\",\r\n            \"UCID:                  442_1158326\",\r\n            \"Primary Eligibility:   HUMANITARIAN EMERGENCY (NOT VERIFIED)\",\r\n            \"Patient Type:          NSC VETERAN\",\r\n            \"OEF/OIF:               NO\",\r\n            \"\",\r\n            \"Service Connection/Rated Disabilities\",\r\n            \"SC Percent:            55%\",\r\n            \"Rated Disabilities:    NONE STATED\",\r\n            \"\",\r\n            \"Order Information\",\r\n            \"To Service:            CHY CARDIOLOGY INPATIENT HATTEL\",\r\n            \"From Service:          CHY CARDIOLOGY\",\r\n            \"Requesting Provider:   BARLA,SRAVANTHI\",\r\n            \"Service is to be rendered on an OUTPATIENT basis\",\r\n            \"Place:                 Consultant's choice\",\r\n            \"Urgency:               Routine\",\r\n            \"Clinically Ind. Date:  Aug 17, 2021\",\r\n            \"DST ID:                \",\r\n            \"Orderable Item:        CHY CARDIOLOGY INPATIENT HATTEL\",\r\n            \"Consult:               Consult Request\",\r\n            \"Reason For Request:\",\r\n            \"CONSULT 4\",\r\n            \" \",\r\n            \"Inter-facility Information\",\r\n            \"This is not an inter-facility consult request.\",\r\n            \"\",\r\n            \"Status:                ACTIVE\",\r\n            \"Last Action:           STATUS CHANGE\",\r\n            \"\",\r\n            \"Facility\",\r\n            \" Activity                Date/Time/Zone      Responsible Person  Entered By\",\r\n            \"-------------------------------------------------------------------------------\",\r\n            \" CPRS RELEASED ORDER     08/13/21 10:17      BARLA,SRAVANTHI     BARLA,SRAVANTHI\",\r\n            \" SCHEDULED               08/13/21 11:54      BARLA,SRAVANTHI     BUTLER,BRANDON L\",\r\n            \"CHY CARDIOLOGY Consult Appt. on 08/13/21 @ 12:30\",\r\n            \"\",\r\n            \"\",\r\n            \" STATUS CHANGE           08/13/21 11:55      BARLA,SRAVANTHI     BUTLER,BRANDON L\",\r\n            \"CHY CARDIOLOGY Appt. on 08/13/21 @ 12:30 was a no-show.\",\r\n            \"\",\r\n            \"\",\r\n            \"Note: TIME ZONE is local if not indicated\",\r\n            \"\",\r\n            \"No local TIU results or Medicine results available for this consult\",\r\n            \"==================================== END =====================================\"\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOSTNAME}}/ConsultDetails/442/",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"ConsultDetails",
+						"442",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "{{HOSTNAME}}/ConsultDetails/442/",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ConsultDetails\": {\r\n        \"DT\": [\r\n            \"Current Pat. Status:   Outpatient\",\r\n            \"UCID:                  442_1158326\",\r\n            \"Primary Eligibility:   HUMANITARIAN EMERGENCY (NOT VERIFIED)\",\r\n            \"Patient Type:          NSC VETERAN\",\r\n            \"OEF/OIF:               NO\",\r\n            \"\",\r\n            \"Service Connection/Rated Disabilities\",\r\n            \"SC Percent:            55%\",\r\n            \"Rated Disabilities:    NONE STATED\",\r\n            \"\",\r\n            \"Order Information\",\r\n            \"To Service:            CHY CARDIOLOGY INPATIENT HATTEL\",\r\n            \"From Service:          CHY CARDIOLOGY\",\r\n            \"Requesting Provider:   BARLA,SRAVANTHI\",\r\n            \"Service is to be rendered on an OUTPATIENT basis\",\r\n            \"Place:                 Consultant's choice\",\r\n            \"Urgency:               Routine\",\r\n            \"Clinically Ind. Date:  Aug 17, 2021\",\r\n            \"DST ID:                \",\r\n            \"Orderable Item:        CHY CARDIOLOGY INPATIENT HATTEL\",\r\n            \"Consult:               Consult Request\",\r\n            \"Reason For Request:\",\r\n            \"CONSULT 4\",\r\n            \" \",\r\n            \"Inter-facility Information\",\r\n            \"This is not an inter-facility consult request.\",\r\n            \"\",\r\n            \"Status:                ACTIVE\",\r\n            \"Last Action:           STATUS CHANGE\",\r\n            \"\",\r\n            \"Facility\",\r\n            \" Activity                Date/Time/Zone      Responsible Person  Entered By\",\r\n            \"-------------------------------------------------------------------------------\",\r\n            \" CPRS RELEASED ORDER     08/13/21 10:17      BARLA,SRAVANTHI     BARLA,SRAVANTHI\",\r\n            \" SCHEDULED               08/13/21 11:54      BARLA,SRAVANTHI     BUTLER,BRANDON L\",\r\n            \"CHY CARDIOLOGY Consult Appt. on 08/13/21 @ 12:30\",\r\n            \"\",\r\n            \"\",\r\n            \" STATUS CHANGE           08/13/21 11:55      BARLA,SRAVANTHI     BUTLER,BRANDON L\",\r\n            \"CHY CARDIOLOGY Appt. on 08/13/21 @ 12:30 was a no-show.\",\r\n            \"\",\r\n            \"\",\r\n            \"Note: TIME ZONE is local if not indicated\",\r\n            \"\",\r\n            \"No local TIU results or Medicine results available for this consult\",\r\n            \"==================================== END =====================================\"\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOSTNAME}}/ConsultDetails/442/",
+							"host": [
+								"{{HOSTNAME}}"
+							],
+							"path": [
+								"ConsultDetails",
+								"442",
+								""
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Jul 2023 00:22:59 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "Server",
+							"value": "openresty"
+						},
+						{
+							"key": "vary",
+							"value": "Origin,Access-Control-Request-Method,Access-Control-Request-Headers"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-xss-protection",
+							"value": "0"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "expires",
+							"value": "0"
+						},
+						{
+							"key": "strict-transport-security",
+							"value": "max-age=31536000 ; includeSubDomains"
+						},
+						{
+							"key": "x-frame-options",
+							"value": "DENY"
+						},
+						{
+							"key": "content-security-policy",
+							"value": "script-src 'self'"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "97"
+						},
+						{
+							"key": "set-cookie",
+							"value": "vamfjwtv3=eyJ6aXAiOiJERUYiLCJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwiYWxnIjoiUlNBLU9BRVAtMjU2In0.sf4Uhsj4b9Xom8Rol2NueBjJrF8dPgSknZ7hvRaED4xzKe9dfrOBQqN61xDWXQMZmawC3lipTLYXgZ9YSz_xZHEK_lgm2KskpR0S72Y_76C3ex_gd28S9cu0QsPpm6fHnBuwD_keldytkp57bGPs6TUgGLYoyXb_kqDlVYGRkyfvZZ7bAFFMEK6GsIwdaGwabFe4YKA_M3vkQlBvRurOrjHtyYfQ5bVA-LfmH26reV9OefDeL1inLqnz2A2WJl5i3Ttfwb65UWDpjxpmX5VBYkb8WPcvOcayMC_0bNiAwaSHYVk7_v9AoFIuO9doRQPDz-uNM2PJ-JGCPnmGeAErng.IrgcGNCi2iiwcMnhE84cpw.kZa_l2F2BfJ9PfzkDRvKgR5YEgzK1paazHwRBy8DOr80y74ebh7xM6qCLLH1nAwG3Fqw1onh-cBNq6roIW99qpA4aQomgzUAatjVKMiOqoieepf7lxGQgnMoRWjVQpgopEwnr5rAsDD7MEkuE7dNYl4blRlRo-Hur1txkXIecbb7Ovdsd6wM_V3apLMP-5D2yWkt_FjmN-j26R-JZ6bcP5Kq9wc5KCZtbdeoYciTqUBYOXB5tYqMKW0PsANlSOrwhOIWCNiGKSSQcuPtB8u7xj5J1OOToS7ZKV77FGORaWZLubCWv6ahOImlWvEBj_7RSJzKTQHZWj0C4GkOheMLzcVy_K1I4IglofEnU9Rrz9K73E3EZJUiXyTkIesTrC04Q2f0USUQKA6GodQ8B63AQvdT-3rMtNrG31KJ73KvUvMrNpapCeWj8oDiOEg6hfXG5HzH3gDoXoClFtLr5Ni6JSgPltNHJSOVU_hvPbTMGJie_vB2yG3kktGzPlX0ImBN5KeuEan8dt_TvGq2VC7fld0X3x_lAZ1n4PdgAHH8xBcrJPuMJB7rRbvrX2JnppG2tYcDNqWB8jwb6v_501W4sww7rvqres29Aai-hLCx-PaTQDJcyvhemCUzkCIiz5t-.8-Z2Egbc-Zo6TtP2X0kOOyAsqePcKEEB2rV1DeCiqZo; path=/; SameSite=Lax; HttpOnly"
+						},
+						{
+							"key": "set-cookie",
+							"value": "vamftimeoutv1=1690504679; SameSite=Lax; path=/"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
